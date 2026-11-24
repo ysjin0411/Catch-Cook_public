@@ -1,0 +1,125 @@
+{
+  "purpose": "Reference data only; actual scene bindings, not a runtime loader. Paths relative to Sushi2_Weather unless beginning with Assets/.",
+  "timeOfDay": "EveningAfterSunset",
+  "presets": [
+    {
+      "weather": "Sunny",
+      "cameraBackgroundRgb": [
+        0.095,
+        0.14,
+        0.25
+      ],
+      "fogRgb": [
+        0.095,
+        0.14,
+        0.25
+      ],
+      "sky": "Materials/Sky/M_Sky_Sunny.mat",
+      "moon": "Materials/Cloud3D/M_Moon3D_Sunny.mat",
+      "clouds": null,
+      "water": "Materials/Water/M_Water_Sunny_Evening.mat",
+      "moonHalo": "Materials/Cloud3D/M_Moon3D_Sunny_Halo.mat",
+      "moonReflection": "Materials/Effects/M_MoonReflection_Sunny.mat",
+      "rain": false,
+      "lightning": false,
+      "fogMode": "Linear",
+      "fogEnd": 230,
+      "implementationStatus": "AppliedToScene",
+      "fogStart": 65,
+      "sceneVisualRoot": "-----Weather-----/Sushi_SunnyEvening",
+      "storeLightingChild": "StoreLighting",
+      "scene": "Assets/01.Scenes/Sushi 2_Sunny.unity",
+      "visualPrefab": "Prefabs/PF_Weather_Sunny.prefab",
+      "waterShader": "Shaders/S_StylizedWater_SushiSky_Sunny.shadergraph",
+      "waterTintProperty": "_WeatherWaterTint",
+      "lightningChild": null,
+      "postProcessProfile": "Profiles/VP_Sunny_Evening.asset",
+      "rainChild": null
+    },
+    {
+      "weather": "Cloudy",
+      "cameraBackgroundRgb": [
+        0.095,
+        0.155,
+        0.225
+      ],
+      "fogRgb": [
+        0.095,
+        0.155,
+        0.225
+      ],
+      "sky": "Materials/CloudyScene/M_Cloudy_SceneSky.mat",
+      "moon": "Materials/Cloud3D/M_Moon3D_Cloudy.mat",
+      "clouds": "Materials/Cloud3D/M_Cloud3D_Near.mat",
+      "farClouds": "Materials/Cloud3D/M_Cloud3D_Far.mat",
+      "moonVeil": "Materials/Cloud3D/M_Cloud3D_MoonVeil.mat",
+      "water": "Materials/Water/M_Water_Cloudy_Evening.mat",
+      "moonHalo": "Materials/Cloud3D/M_Moon3D_Halo.mat",
+      "moonReflection": "Materials/Effects/M_MoonReflection_Cloudy.mat",
+      "rain": false,
+      "lightning": false,
+      "fogMode": "Linear",
+      "fogEnd": 230,
+      "implementationStatus": "AppliedToScene",
+      "fogStart": 65,
+      "sceneVisualRoot": "-----Weather-----/Sushi_CloudyEvening",
+      "storeLightingChild": "StoreLighting",
+      "scene": "Assets/01.Scenes/Sushi 2.unity",
+      "visualPrefab": "Prefabs/PF_Weather_Cloudy.prefab",
+      "waterShader": "Shaders/S_StylizedWater_SushiSky_Cloudy.shadergraph",
+      "waterTintProperty": "_CloudyWaterTint",
+      "lightningChild": null,
+      "postProcessProfile": "Profiles/VP_Cloudy_Evening.asset",
+      "rainChild": null
+    },
+    {
+      "weather": "Rainy",
+      "cameraBackgroundRgb": [
+        0.06,
+        0.12,
+        0.18
+      ],
+      "fogRgb": [
+        0.06,
+        0.12,
+        0.18
+      ],
+      "sky": "Materials/Sky/M_Sky_Rainy.mat",
+      "moon": null,
+      "clouds": "Materials/Cloud3D/M_Cloud3D_RainyNear.mat",
+      "water": "Materials/Water/M_Water_Rainy_Evening.mat",
+      "moonHalo": null,
+      "moonReflection": null,
+      "rain": true,
+      "lightning": true,
+      "fogMode": "Linear",
+      "fogEnd": 230,
+      "implementationStatus": "AppliedToScene",
+      "fogStart": 65,
+      "sceneVisualRoot": "-----Weather-----/Sushi_RainyEvening",
+      "storeLightingChild": "StoreLighting",
+      "scene": "Assets/01.Scenes/Sushi 2_Rainy.unity",
+      "visualPrefab": "Prefabs/PF_Weather_Rainy.prefab",
+      "waterShader": "Shaders/S_StylizedWater_SushiSky_Rainy.shadergraph",
+      "waterTintProperty": "_WeatherWaterTint",
+      "lightningChild": "StormLightning",
+      "postProcessProfile": "Profiles/VP_Rainy_Evening.asset",
+      "rainChild": "RainParticles",
+      "farClouds": "Materials/Cloud3D/M_Cloud3D_RainyFar.mat",
+      "lightningChildren": [
+        "StormLightning",
+        "StormLightning_02",
+        "StormLightning_03",
+        "StormLightning_04",
+        "StormLightning_05"
+      ]
+    }
+  ],
+  "lightningAssets": {
+    "controller": "Scripts/SushiStormLightning.cs",
+    "bolt": "Materials/Effects/M_StormBolt_Core.mat",
+    "boltGlow": "Materials/Effects/M_StormBolt_Glow.mat",
+    "cloudFlash": "Materials/Effects/M_StormCloud_Glow.mat",
+    "waterGlint": "Materials/Effects/M_LightningReflection.mat"
+  }
+}

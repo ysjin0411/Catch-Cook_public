@@ -1,0 +1,377 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2279210311074721722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2320333395342950558}
+  - component: {fileID: 8745084925864333574}
+  - component: {fileID: 2529796905902420076}
+  m_Layer: 0
+  m_Name: WoodPlate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2320333395342950558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2279210311074721722}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5459895800953469953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8745084925864333574
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2279210311074721722}
+  m_Mesh: {fileID: 4300000, guid: 5202b9165f77466499d4841f801826a8, type: 2}
+--- !u!23 &2529796905902420076
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2279210311074721722}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 326139624230543641, guid: 846c76f1720adf84ca0eab183b11107c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6465792656672057290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5459895800953469953}
+  m_Layer: 0
+  m_Name: SkunkTileFish_GrilledPlate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5459895800953469953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465792656672057290}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2320333395342950558}
+  - {fileID: 3568540503308560290}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8445017631496636683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3568540503308560290}
+  m_Layer: 0
+  m_Name: SushiContents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3568540503308560290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445017631496636683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 705955163975081384}
+  - {fileID: 4537479093812624926}
+  - {fileID: 4512577599169048067}
+  m_Father: {fileID: 5459895800953469953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2169640874271031916
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3568540503308560290}
+    m_Modifications:
+    - target: {fileID: 2043786697171330579, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_Name
+      value: SkunkTileFish_Grilled_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.36635584
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25512472
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00017175078
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+--- !u!4 &4512577599169048067 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+  m_PrefabInstance: {fileID: 2169640874271031916}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2196530363264307825
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3568540503308560290}
+    m_Modifications:
+    - target: {fileID: 2043786697171330579, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_Name
+      value: SkunkTileFish_Grilled_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00042786822
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25512472
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00017175078
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+--- !u!4 &4537479093812624926 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+  m_PrefabInstance: {fileID: 2196530363264307825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2976870491208987079
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3568540503308560290}
+    m_Modifications:
+    - target: {fileID: 2043786697171330579, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_Name
+      value: SkunkTileFish_Grilled_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19439733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3655001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25512472
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00017175078
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+--- !u!4 &705955163975081384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2342990609558334575, guid: 43ceaef7cb5813c4da6feacabd3e6acc, type: 3}
+  m_PrefabInstance: {fileID: 2976870491208987079}
+  m_PrefabAsset: {fileID: 0}

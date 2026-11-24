@@ -1,0 +1,36 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><title>Fluid V3 — 실제 솔버 계산 재생</title>
+<style>body{margin:0;background:#111d1d;color:#e8f1ec;font:15px system-ui;display:grid;place-items:center}main{padding:24px;max-width:900px}canvas{background:#1d2c2b;max-height:76vh;max-width:100%;border-radius:14px}p{max-width:650px;line-height:1.6}input{width:350px}button{padding:8px 18px;margin:10px}</style>
+<main><h2>물방울을 유지하는 유체 계산</h2><p>생성한 C# 솔버의 실제 좌표를 재생합니다. Unity 실행 화면이 아니며, 화면 합성은 같은 밀도 공식을 Canvas로 재현했습니다. 실제 게임용 코드는 실시간으로 계산합니다.</p><canvas id="screen" width="500" height="700"></canvas><div><button id="play">일시정지</button><input id="time" type="range" min="0" max="449" value="0"><span id="label"></span></div><p>주입 중 출렁임 → 입력 종료 → 컵 안에서 안정되는 과정을 확인하세요. 색 선은 목표 68~78%, 수치는 물결 최고점과 분리된 기준 수위입니다.</p></main>
+<script src="frames.js"></script><script>
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
+const field=document.createElement('canvas');field.width=300;field.height=360;const fx=field.getContext('2d');
+const density=new Float32Array(300*360),pixels=fx.createImageData(300,360);
+const load=name=>{const image=new Image();image.src='../../Sprites/'+name+'.png';return image;};
+const bottle=load('Bottle_Opaque_Wide'),back=load('Cup_Back'),front=load('Cup_Front');
+let index=0,playing=true,last=0;
+const slider=document.querySelector('#time');slider.max=fluidFrames.length-1;
+document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'일시정지':'재생';};
+slider.oninput=()=>{index=Number(slider.value);render();};
+function render(){
+ const frame=fluidFrames[index];density.fill(0);const radius=.21*60;
+ for(let k=0;k<frame.xy.length;k+=2){const cx=(frame.xy[k]+2.5)*60,cy=(frame.xy[k+1]+3)*60;
+  for(let y=Math.max(0,Math.floor(cy-radius));y<=Math.min(359,Math.ceil(cy+radius));y++)
+   for(let x=Math.max(0,Math.floor(cx-radius));x<=Math.min(299,Math.ceil(cx+radius));x++){
+    const dx=(x+.5-cx)/radius,dy=(y+.5-cy)/radius,q=Math.max(0,1-dx*dx-dy*dy);density[y*300+x]+=q*q;}}
+ for(let y=0;y<360;y++)for(let x=0;x<300;x++){let a=Math.max(0,Math.min(1,(density[y*300+x]-.465)/.07));a=a*a*(3-2*a);let j=((359-y)*300+x)*4;pixels.data[j]=179;pixels.data[j+1]=204;pixels.data[j+2]=72;pixels.data[j+3]=Math.round(a*255);}
+ fx.putImageData(pixels,0,0);ctx.fillStyle='#1d2c2b';ctx.fillRect(0,0,500,700);
+ if(back.complete&&back.naturalWidth)ctx.drawImage(back,130,240,240,320);
+ ctx.drawImage(field,0,0,500,600);
+ if(front.complete&&front.naturalWidth)ctx.drawImage(front,130,240,240,320);
+ ctx.save();ctx.translate(295,175);ctx.rotate(-(frame.result==='Running'?142+14*frame.pressure:142)*Math.PI/180);
+ if(bottle.complete&&bottle.naturalWidth)ctx.drawImage(bottle,-80,-213.333*(1-.855),160,213.333);ctx.restore();
+ ctx.fillStyle='#ffd45c33';ctx.fillRect(166,321.6,168,28);ctx.strokeStyle='#ffd45c';ctx.lineWidth=2;
+ for(const y of [321.6,349.6]){ctx.beginPath();ctx.moveTo(160,y);ctx.lineTo(340,y);ctx.stroke();}
+ ctx.fillStyle='#132322';ctx.fillRect(50,573,400,24);ctx.fillStyle='#ffd45c';ctx.fillRect(210,573,80,24);
+ const mx=50+400*frame.pressure;ctx.fillStyle='white';ctx.beginPath();ctx.moveTo(mx,602);ctx.lineTo(mx-10,619);ctx.lineTo(mx+10,619);ctx.fill();
+ ctx.font='16px system-ui';ctx.fillStyle='white';ctx.fillText('기준 수위 '+(frame.height*100).toFixed(1)+'% · '+frame.result,45,650);
+ ctx.font='12px system-ui';ctx.fillStyle='#a8bcb8';ctx.fillText('C# 계산 데이터 재생 · Unity 화면 캡처 아님',45,676);
+ slider.value=index;document.querySelector('#label').textContent=frame.time.toFixed(1)+'초';
+}
+function loop(t){if(t-last>33.3){if(playing)index=(index+1)%fluidFrames.length;render();last=t;}requestAnimationFrame(loop);}requestAnimationFrame(loop);
+</script></html>

@@ -1,0 +1,184 @@
+using UnityEngine;
+
+namespace SushiPouringSample
+{
+    /// <summary>3D 물방울 풀, 도착량 집계와 화면상의 메타볼 표시를 담당합니다.</summary>
+    public sealed class MetaballFluidRig : MonoBehaviour
+    {
+        private const int Capacity = 48;
+        private const double Parcel = 0.004;
+        [SerializeField] private UnityEngine.UI.RawImage _output;
+        [SerializeField] private Shader _fluidShader;
+        [SerializeField] private Transform _physicsRoot;
+        [SerializeField] private Vector2 _nozzle = new Vector2(0f, 1.9f);
+        private readonly Rigidbody[] _bodies = new Rigidbody[Capacity];
+        private readonly double[] _volumes = new double[Capacity];
+        private readonly float[] _ages = new float[Capacity];
+        private readonly Vector4[] _balls = new Vector4[Capacity];
+        private Material _material;
+        private PouringModel _model;
+        private float _ripple;
+
+        /// <summary>표시 대상과 물리 공간의 기본 조건을 검사합니다.</summary>
+        public bool IsConfigured()
+        {
+            // 물리 루트는 회전과 스케일이 없는 전용 월드 오브젝트를 사용합니다.
+            return _output && _fluidShader && _physicsRoot &&
+                _physicsRoot.lossyScale == Vector3.one && _physicsRoot.rotation == Quaternion.identity;
+        }
+
+        /// <summary>필요한 리소스를 만들고 새 세션을 연결합니다.</summary>
+        public void Begin(PouringModel model, Color color)
+        {
+            // 첫 실행에만 풀을 만들어 라운드마다 Instantiate하지 않습니다.
+            if (!_material) BuildResources();
+            ResetDrops();
+            // 수위와 발사량은 모델만 소유합니다.
+            _model = model;
+            _ripple = 0f;
+            _material.SetColor("_LiquidColor", color);
+            _output.gameObject.SetActive(true);
+        }
+
+        /// <summary>자신이 소유할 머티리얼과 3D 구체를 생성합니다.</summary>
+        private void BuildResources()
+        {
+            // 다른 UI의 머티리얼이나 물리 레이어 설정을 변경하지 않습니다.
+            _material = new Material(_fluidShader);
+            _output.texture = Texture2D.whiteTexture;
+            _output.material = _material;
+            _output.maskable = false;
+            _output.raycastTarget = false;
+            // 실제 구체와 Rigidbody를 만들되 최종 표시는 메타볼 셰이더에 맡깁니다.
+            for (int i = 0; i < Capacity; i++)
+            {
+                // 화면 밖의 전용 물리 루트 아래에 일정 크기의 물방울을 준비합니다.
+                GameObject drop = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                drop.name = "PooledFluidDrop_" + i;
+                drop.transform.SetParent(_physicsRoot, false);
+                drop.transform.localScale = Vector3.one * 0.18f;
+                drop.GetComponent<MeshRenderer>().enabled = false;
+                Rigidbody body = drop.AddComponent<Rigidbody>();
+                body.useGravity = true;
+                body.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                body.interpolation = RigidbodyInterpolation.Interpolate;
+                body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+                _bodies[i] = body;
+                drop.SetActive(false);
+            }
+        }
+
+        /// <summary>발사량을 구체로 만들고 도착하거나 흘린 방울의 양을 처리합니다.</summary>
+        private void FixedUpdate()
+        {
+            // 종료 후에는 구체를 회수하고 마지막 수위만 표시합니다.
+            if (_model == null || _model.Result != PourResult.Running)
+            {
+                // 종료 상태에서 남은 물방울이 다음 라운드에 섞이지 않게 합니다.
+                ResetDrops();
+                return;
+            }
+            // 모델이 계산한 정확한 양을 고정 용량의 방울로 나눕니다.
+            for (int i = 0; i < Capacity; i++)
+            {
+                // 사용 중인 슬롯과 아직 한 방울이 안 되는 예산은 다음 프레임에 처리합니다.
+                if (_bodies[i].gameObject.activeSelf || _model.EmissionBudget <= 1e-9) continue;
+                if (_model.EmissionBudget < Parcel && _model.Pressure > 0d) continue;
+                double volume = _model.TakeEmission(Parcel);
+                _volumes[i] = volume;
+                _ages[i] = 0f;
+                // 출구 주변에 작은 편차를 주어 완벽한 직선 기둥을 피합니다.
+                Vector3 position = _physicsRoot.TransformPoint(new Vector3(
+                    _nozzle.x + Random.Range(-0.045f, 0.045f), _nozzle.y, 0f));
+                _bodies[i].position = position;
+                _bodies[i].gameObject.SetActive(true);
+                _bodies[i].linearVelocity = new Vector3(Random.Range(-0.12f, 0.12f), -1.2f, 0f);
+                // 물방울끼리 단단한 구슬처럼 튕기지 않게 해당 쌍의 충돌만 제외합니다.
+                Collider own = _bodies[i].GetComponent<Collider>();
+                for (int j = 0; j < Capacity; j++)
+                {
+                    // IgnoreCollision은 활성 콜라이더 쌍에 적용합니다.
+                    if (i != j && _bodies[j].gameObject.activeSelf)
+                        Physics.IgnoreCollision(own, _bodies[j].GetComponent<Collider>());
+                }
+            }
+            // 물리 시뮬레이션이 갱신한 위치를 수면과 비교합니다.
+            for (int i = 0; i < Capacity; i++)
+            {
+                // 비활성 방울에는 부피가 없으므로 건너뜁니다.
+                if (!_bodies[i].gameObject.activeSelf) continue;
+                _ages[i] += Time.fixedDeltaTime;
+                Vector3 p = _physicsRoot.InverseTransformPoint(_bodies[i].position);
+                float surface = Mathf.Lerp(-2.4f, 0.4f, Mathf.Clamp01((float)_model.Fill));
+                float halfWidth = Mathf.Lerp(0.72f, 0.84f, Mathf.Clamp01((surface + 2.4f) / 2.8f));
+                // 컵 내부 수면에 도착한 양만 수위에 반영합니다.
+                if (p.y <= surface + 0.04f && Mathf.Abs(p.x) <= halfWidth)
+                {
+                    // 재사용 전에 비활성화하여 도착량을 두 번 더하지 않습니다.
+                    _bodies[i].gameObject.SetActive(false);
+                    _model.Land(_volumes[i]);
+                    _ripple = Mathf.Min(0.09f, _ripple + 0.012f);
+                }
+                else if (p.y < -3f || _ages[i] > 3f)
+                {
+                    // 밖으로 흘렀거나 다른 지형에 걸린 방울은 손실 처리합니다.
+                    _bodies[i].gameObject.SetActive(false);
+                    _model.Spill(_volumes[i]);
+                }
+            }
+        }
+
+        /// <summary>구체 위치를 셰이더에 보내 한 덩어리의 액체로 그립니다.</summary>
+        private void LateUpdate()
+        {
+            // 아직 시작하지 않았다면 머티리얼에 접근하지 않습니다.
+            if (!_material || _model == null) return;
+            int count = 0;
+            for (int i = 0; i < Capacity; i++)
+            {
+                // 활성 구체만 배열 앞부분에 압축해서 전달합니다.
+                if (!_bodies[i].gameObject.activeSelf) continue;
+                Vector3 p = _physicsRoot.InverseTransformPoint(_bodies[i].transform.position);
+                _balls[count++] = new Vector4(p.x, p.y, 0.21f, 0f);
+            }
+            // 충격으로 생긴 수면 파동을 서서히 감쇠시킵니다.
+            _ripple = Mathf.MoveTowards(_ripple, 0f, Time.deltaTime * 0.12f);
+            _material.SetInt("_BallCount", count);
+            _material.SetVectorArray("_Balls", _balls);
+            _material.SetFloat("_Fill", Mathf.Clamp01((float)_model.Fill));
+            _material.SetFloat("_Ripple", _ripple);
+            _material.SetFloat("_Clock", (float)_model.Elapsed);
+        }
+
+        /// <summary>소유 중인 물방울 풀을 비활성화합니다.</summary>
+        private void ResetDrops()
+        {
+            // 풀을 파괴하지 않으므로 다음 라운드에서 그대로 재사용합니다.
+            for (int i = 0; i < Capacity; i++)
+            {
+                // 초기화 전 또는 이미 파괴된 슬롯도 안전하게 처리합니다.
+                if (_bodies[i]) _bodies[i].gameObject.SetActive(false);
+            }
+        }
+
+        /// <summary>패널을 닫으면 세션과 물방울을 정리합니다.</summary>
+        private void OnDisable()
+        {
+            // 컨트롤러가 이후 취소 결과를 한 번 보고합니다.
+            _model?.Cancel();
+            ResetDrops();
+        }
+
+        /// <summary>컴포넌트가 생성한 런타임 리소스만 해제합니다.</summary>
+        private void OnDestroy()
+        {
+            // 원본 셰이더와 외부 물리 루트는 삭제하지 않습니다.
+            if (_material) Destroy(_material);
+            for (int i = 0; i < Capacity; i++)
+            {
+                // 런타임에 생성한 구체만 제거합니다.
+                if (_bodies[i]) Destroy(_bodies[i].gameObject);
+            }
+        }
+    }
+}

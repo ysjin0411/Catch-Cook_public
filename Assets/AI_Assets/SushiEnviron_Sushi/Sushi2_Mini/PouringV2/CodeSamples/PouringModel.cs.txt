@@ -1,0 +1,191 @@
+using System;
+
+namespace SushiPouringSample
+{
+    /// <summary>미니게임 종료 상태를 정의합니다.</summary>
+    public enum PourResult { Running, Success, Overfilled, TimedOut, Cancelled }
+
+    /// <summary>씬과 입력 장치에 의존하지 않는 미니게임 설정입니다.</summary>
+    [Serializable]
+    public sealed class PourSettings
+    {
+        public float DriftPerSecond = 0.45f;
+        public float TapImpulse = 0.12f;
+        public float IdealMin = 0.40f;
+        public float IdealMax = 0.60f;
+        public float IdealFlow = 0.12f;
+        public float MaxFlow = 0.34f;
+        public float TargetMin = 0.68f;
+        public float TargetMax = 0.78f;
+        public float TimeLimit = 12f;
+        public float SettleSeconds = 0.20f;
+        public bool RequireStoppedForSuccess = true;
+
+        /// <summary>잘못된 설정으로 시작하지 않도록 범위와 유한성을 검사합니다.</summary>
+        public void Validate()
+        {
+            // 모든 수치가 NaN 또는 무한대인지 먼저 확인합니다.
+            float[] values = { DriftPerSecond, TapImpulse, IdealMin, IdealMax,
+                IdealFlow, MaxFlow, TargetMin, TargetMax, TimeLimit, SettleSeconds };
+            foreach (float value in values)
+            {
+                // 유한하지 않은 설정은 계산에 전달하지 않습니다.
+                if (float.IsNaN(value) || float.IsInfinity(value))
+                    throw new ArgumentException("설정에는 유한한 숫자만 사용할 수 있습니다.");
+            }
+            // 구간의 순서와 속도, 시간의 범위를 검사합니다.
+            if (DriftPerSecond <= 0 || TapImpulse <= 0 || TapImpulse > 1 ||
+                IdealMin <= 0 || IdealMin >= IdealMax || IdealMax >= 1 ||
+                IdealFlow <= 0 || MaxFlow < IdealFlow ||
+                TargetMin <= 0 || TargetMin >= TargetMax || TargetMax > 1 ||
+                TimeLimit <= 0 || SettleSeconds < 0)
+                throw new ArgumentException("압력·유량·목표 수위 설정 범위를 확인하세요.");
+        }
+    }
+
+    /// <summary>압력, 수위, 시간과 종료 판정만 담당하는 순수 C# 모델입니다.</summary>
+    public sealed class PouringModel
+    {
+        private readonly PourSettings _settings;
+        private double _quietTime;
+        public double Pressure { get; private set; }
+        public double Fill { get; private set; }
+        public double Elapsed { get; private set; }
+        public double Flow { get; private set; }
+        public double EmissionBudget { get; private set; }
+        public double InFlight { get; private set; }
+        public PourResult Result { get; private set; } = PourResult.Running;
+
+        /// <summary>검증된 설정을 복사하여 한 번의 플레이 세션을 만듭니다.</summary>
+        public PouringModel(PourSettings settings)
+        {
+            // null 설정과 잘못된 수치를 시작 전에 차단합니다.
+            if (settings == null) throw new ArgumentNullException(nameof(settings));
+            settings.Validate();
+            // 외부 인스펙터 값이 바뀌어도 실행 중인 세션은 같은 규칙을 유지합니다.
+            _settings = new PourSettings {
+                DriftPerSecond = settings.DriftPerSecond, TapImpulse = settings.TapImpulse,
+                IdealMin = settings.IdealMin, IdealMax = settings.IdealMax,
+                IdealFlow = settings.IdealFlow, MaxFlow = settings.MaxFlow,
+                TargetMin = settings.TargetMin, TargetMax = settings.TargetMax,
+                TimeLimit = settings.TimeLimit, SettleSeconds = settings.SettleSeconds,
+                RequireStoppedForSuccess = settings.RequireStoppedForSuccess };
+        }
+
+        /// <summary>새로 누른 입력 한 번을 압력 증가로 변환합니다.</summary>
+        public void Tap()
+        {
+            // 종료 후의 입력은 결과를 바꾸지 않습니다.
+            if (Result != PourResult.Running) return;
+            // 압력은 오른쪽 끝을 넘지 않고, 정지 판정 시간을 초기화합니다.
+            Pressure = Math.Min(1d, Pressure + _settings.TapImpulse);
+            Flow = CalculateFlow(Pressure);
+            _quietTime = 0d;
+        }
+
+        /// <summary>압력 위치를 초당 수위 증가량으로 변환합니다.</summary>
+        private double CalculateFlow(double pressure)
+        {
+            // 노란 영역 왼쪽에서는 왼쪽 끝의 0부터 기준 유량까지 증가합니다.
+            if (pressure < _settings.IdealMin)
+                return _settings.IdealFlow * pressure / _settings.IdealMin;
+            // 노란 영역 내부에서는 조작 오차를 허용하는 일정 유량을 사용합니다.
+            if (pressure <= _settings.IdealMax) return _settings.IdealFlow;
+            // 오른쪽으로 벗어날수록 최대 유량까지 증가합니다.
+            double excess = (pressure - _settings.IdealMax) / (1d - _settings.IdealMax);
+            return _settings.IdealFlow + (_settings.MaxFlow - _settings.IdealFlow) * excess;
+        }
+
+        /// <summary>작은 시간 단위로 감쇠, 수위 상승, 성공과 실패를 처리합니다.</summary>
+        public void Tick(double deltaTime)
+        {
+            // 종료 상태 및 잘못된 시간은 처리하지 않습니다.
+            if (Result != PourResult.Running || deltaTime <= 0d ||
+                double.IsNaN(deltaTime) || double.IsInfinity(deltaTime)) return;
+            // 프레임 길이에 따른 오차를 줄이도록 최대 1/120초씩 계산합니다.
+            double remaining = Math.Min(deltaTime, _settings.TimeLimit - Elapsed);
+            while (remaining > 0d && Result == PourResult.Running)
+            {
+                // 제한 시간에 도달하는 마지막 조각까지 계산합니다.
+                double step = Math.Min(remaining, 1d / 120d);
+                double oldFlow = CalculateFlow(Pressure);
+                Pressure = Math.Max(0d, Pressure - _settings.DriftPerSecond * step);
+                Flow = CalculateFlow(Pressure);
+                // 유량은 즉시 수위가 아니라 아직 컵에 도착하지 않은 양으로 누적합니다.
+                double emitted = (oldFlow + Flow) * 0.5d * step;
+                EmissionBudget += emitted;
+                InFlight += emitted;
+                Elapsed += step;
+                remaining -= step;
+                // 유량이 완전히 멈춘 시간만 누적합니다.
+                _quietTime = Pressure == 0d ? _quietTime + step : 0d;
+                // 즉시 성공 옵션은 목표 하한 통과를 성공으로 확정합니다.
+                if (!_settings.RequireStoppedForSuccess && Fill >= _settings.TargetMin)
+                {
+                    // 같은 계산 조각에서 상한을 넘더라도 하한에 먼저 도달한 것입니다.
+                    Fill = Math.Min(Fill, _settings.TargetMax);
+                    Finish(PourResult.Success);
+                }
+                else if (Fill > _settings.TargetMax)
+                {
+                    // 상한 초과는 되돌릴 수 없는 실패로 처리합니다.
+                    Finish(PourResult.Overfilled);
+                }
+                else if (Pressure == 0d && InFlight <= 1e-7 && Fill >= _settings.TargetMin && _quietTime >= _settings.SettleSeconds)
+                {
+                    // 부족할 때는 계속 진행하고, 목표 수위에서 멈췄을 때만 성공합니다.
+                    Finish(PourResult.Success);
+                }
+            }
+            // 같은 시각에 성공했다면 성공을 유지하고, 그 외에는 시간 초과입니다.
+            if (Result == PourResult.Running && Elapsed >= _settings.TimeLimit - 1e-9)
+                Finish(PourResult.TimedOut);
+        }
+
+        /// <summary>손님 이탈이나 UI 종료에 의해 세션을 취소합니다.</summary>
+        public void Cancel()
+        {
+            // 이미 확정된 결과는 취소로 덮어쓰지 않습니다.
+            if (Result == PourResult.Running) Finish(PourResult.Cancelled);
+        }
+
+        /// <summary>발사 대기 중인 양을 물방울 하나에 할당합니다.</summary>
+        public double TakeEmission(double maximum)
+        {
+            // 생성되지 않은 양은 다음 물리 프레임까지 보존합니다.
+            if (Result != PourResult.Running || maximum <= 0d || double.IsNaN(maximum)) return 0d;
+            double amount = Math.Min(maximum, EmissionBudget);
+            EmissionBudget -= amount;
+            return amount;
+        }
+
+        /// <summary>방울이 컵에 도착했을 때만 실제 수위를 증가시킵니다.</summary>
+        public void Land(double volume)
+        {
+            // 종료 이후 또는 유효하지 않은 도착은 무시합니다.
+            if (Result != PourResult.Running || volume <= 0d || double.IsNaN(volume) || double.IsInfinity(volume)) return;
+            // 생성 대기량은 수위에 포함하지 않습니다.
+            double accepted = Math.Min(volume, Math.Max(0d, InFlight - EmissionBudget));
+            InFlight = Math.Max(0d, InFlight - accepted);
+            Fill += accepted;
+            // 넘침은 도착 프레임에 바로 확정합니다.
+            if (_settings.RequireStoppedForSuccess && Fill > _settings.TargetMax) Finish(PourResult.Overfilled);
+        }
+
+        /// <summary>컵 밖으로 떨어진 양을 미도착량에서 제외합니다.</summary>
+        public void Spill(double volume)
+        {
+            // 흘린 음료는 컵의 수위를 증가시키지 않습니다.
+            if (volume <= 0d || double.IsNaN(volume) || double.IsInfinity(volume)) return;
+            InFlight = Math.Max(EmissionBudget, InFlight - volume);
+        }
+
+        /// <summary>최종 결과를 저장하고 유량을 차단합니다.</summary>
+        private void Finish(PourResult result)
+        {
+            // 표시 계층은 이 상태를 읽어 물줄기와 레버를 정지합니다.
+            Result = result;
+            Flow = 0d;
+        }
+    }
+}

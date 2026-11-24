@@ -1,0 +1,92 @@
+using System;
+
+namespace SushiPouringV3
+{
+    /// <summary>한 라운드의 종료 이유입니다.</summary>
+    public enum FluidResult { Running, Success, Overfilled, TimedOut, Cancelled }
+
+    /// <summary>연타 게이지와 유체 솔버를 연결하고 보존된 양으로 판정합니다.</summary>
+    public sealed class FluidPourSession
+    {
+        public readonly FluidSimulation Fluid = new FluidSimulation();
+        public double Pressure { get; private set; }
+        public double Flow { get; private set; }
+        public double Pending { get; private set; }
+        public double Elapsed { get; private set; }
+        public double Contained { get; private set; }
+        public double Flying { get; private set; }
+        public double Height => FluidSimulation.HeightAtVolume(Contained);
+        public FluidResult Result { get; private set; } = FluidResult.Running;
+        public bool ImmediateSuccess { get; set; }
+        private double _quiet;
+        private int _emissionIndex;
+
+        /// <summary>새로 누른 입력 한 번을 오른쪽 방향 충격으로 반영합니다.</summary>
+        public void Tap()
+        {
+            // 확정된 결과는 이후 입력으로 변경하지 않습니다.
+            if (Result != FluidResult.Running) return;
+            Pressure = Math.Min(1d, Pressure + 0.12d);
+            _quiet = 0d;
+        }
+
+        /// <summary>고정 시간 한 스텝을 처리하고 병 입구에서 입자를 발사합니다.</summary>
+        public void Step(double dt, double mouthX, double mouthY, double directionX, double directionY)
+        {
+            // 솔버는 종료 뒤에도 남은 물이 평평해지는 모습을 계속 계산합니다.
+            if (Result == FluidResult.Running)
+            {
+                // 연타가 없으면 압력이 내려가고 위치에 따라 유량이 변합니다.
+                Pressure = Math.Max(0d, Pressure - 0.45d*dt);
+                Flow = Pressure < 0.4d ? 0.12d*Pressure/0.4d :
+                    Pressure <= 0.6d ? 0.12d : 0.12d+0.22d*(Pressure-0.6d)/0.4d;
+                Pending += Flow*dt;
+                Elapsed += dt;
+                // 큰 예산은 여러 방울로 나누고 풀 고갈 시 그대로 보존합니다.
+                while (Pending >= FluidSimulation.Parcel || (Pressure == 0d && Pending > 1e-9))
+                {
+                    // 재현 가능한 작은 발사 편차로 완전히 겹치는 입자를 피합니다.
+                    double amount = Math.Min(Pending, FluidSimulation.Parcel);
+                    double jitter = Math.Sin(_emissionIndex*2.399963d)*0.025d;
+                    bool emitted = Fluid.TryEmit(mouthX+jitter, mouthY,
+                        directionX*3.2d, directionY*3.2d, amount);
+                    if (!emitted) break;
+                    Pending -= amount;
+                    _emissionIndex++;
+                }
+            }
+            // 입자를 회수하지 않고 컵 안에서 계속 압력과 충돌을 계산합니다.
+            Fluid.Step(dt);
+            Fluid.Measure(out double contained, out double flying, out double meanSpeed);
+            Contained = contained;
+            Flying = flying;
+            if (Result != FluidResult.Running) return;
+            // 실제 물결 높이 대신 누적된 양을 컵의 기준 높이로 변환합니다.
+            bool target = Height >= 0.68d && Height <= 0.78d;
+            bool stopped = Pressure == 0d && Pending <= 1e-7 && Flying <= 1e-7;
+            // 남은 방울뿐 아니라 큰 출렁임도 가라앉은 시간을 누적합니다.
+            _quiet = stopped && meanSpeed < 0.25d ? _quiet+dt : 0d;
+            // 즉시 성공은 사용자 원안, 정지 후 성공은 마지막 방울까지 반영하는 옵션입니다.
+            if (ImmediateSuccess && Height >= 0.68d) Finish(FluidResult.Success);
+            else if (Height > 0.78d) Finish(FluidResult.Overfilled);
+            else if (target && _quiet >= 0.5d) Finish(FluidResult.Success);
+            else if (Elapsed >= 12d) Finish(FluidResult.TimedOut);
+        }
+
+        /// <summary>대상 이탈이나 패널 종료 요청을 취소로 확정합니다.</summary>
+        public void Cancel()
+        {
+            // 취소 이벤트를 중복 발생시키지 않도록 실행 중에만 변경합니다.
+            if (Result == FluidResult.Running) Finish(FluidResult.Cancelled);
+        }
+
+        /// <summary>유량을 차단하고 라운드 결과를 확정합니다.</summary>
+        private void Finish(FluidResult result)
+        {
+            // 물리 입자는 남겨두되 새 음료는 생성하지 않습니다.
+            Result = result;
+            Flow = 0d;
+            Pressure = 0d;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+Shader "SushiMini/UI Metaball Fluid"
+{
+    Properties
+    {
+        [PerRendererData] _MainTex ("UI Texture", 2D) = "white" {}
+        _LiquidColor ("Liquid Color", Color) = (0.7,0.9,0.2,1)
+        _Threshold ("Merge Threshold", Range(0.2,0.8)) = 0.5
+        _EdgeSoftness ("Edge Softness", Range(0.005,0.08)) = 0.02
+    }
+    SubShader
+    {
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
+        Cull Off
+        ZWrite Off
+        ZTest [unity_GUIZTestMode]
+        Blend SrcAlpha OneMinusSrcAlpha
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex Vert
+            #pragma fragment Frag
+            #pragma target 3.0
+            #include "UnityCG.cginc"
+            struct AppData { float4 vertex : POSITION; float2 uv : TEXCOORD0; fixed4 color : COLOR; };
+            struct Varyings { float4 vertex : SV_POSITION; float2 uv : TEXCOORD0; fixed4 color : COLOR; };
+            float4 _Balls[48];
+            int _BallCount;
+            float _Fill, _Ripple, _Clock, _Threshold, _EdgeSoftness;
+            fixed4 _LiquidColor;
+
+            // <summary>Canvas의 정점을 화면 공간으로 변환합니다.</summary>
+            Varyings Vert(AppData v)
+            {
+                // RawImage의 UV 전체가 5×6 월드 단위의 물리 공간에 대응합니다.
+                Varyings o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
+                o.color = v.color;
+                return o;
+            }
+
+            // <summary>물방울과 컵 내부 액체의 밀도를 합산합니다.</summary>
+            float Density(float2 p)
+            {
+                // 구체의 중심에서 멀어질수록 0으로 부드럽게 감소하는 필드입니다.
+                float density = 0;
+                [loop] for (int i = 0; i < _BallCount; i++)
+                {
+                    // 겹친 영향력을 합산하므로 두 방울 사이에 연결 부위가 생깁니다.
+                    float2 d = (p - _Balls[i].xy) / max(_Balls[i].z, 0.001);
+                    float kernel = saturate(1 - dot(d, d));
+                    density += kernel * kernel;
+                }
+                // 빈 컵에는 액체 필드를 만들지 않습니다.
+                if (_Fill > 0.00001)
+                {
+                    // 같은 좌표계의 컵 사다리꼴과 수면을 부드러운 필드로 만듭니다.
+                    float surface = lerp(-2.4, 0.4, _Fill);
+                    float wave = sin(p.x * 7 + _Clock * 12) * _Ripple;
+                    float halfWidth = lerp(0.72, 0.84, saturate((p.y + 2.4) / 2.8));
+                    float distanceToPool = max(abs(p.x) - halfWidth,
+                        max(-2.4 - p.y, p.y - surface - wave));
+                    density += saturate(_Threshold - distanceToPool / 0.12);
+                }
+                return density;
+            }
+
+            // <summary>합산된 필드를 하나의 액체 경계와 간단한 명암으로 표시합니다.</summary>
+            fixed4 Frag(Varyings i) : SV_Target
+            {
+                // 픽셀 좌표와 실제 구체의 로컬 좌표를 일치시킵니다.
+                float2 p = i.uv * float2(5,6) - float2(2.5,3);
+                float density = Density(p);
+                float softness = max(_EdgeSoftness, fwidth(density));
+                float alpha = smoothstep(_Threshold - softness, _Threshold + softness, density);
+                // 경계 주변만 살짝 밝게 하여 연결된 물방울을 읽기 쉽게 만듭니다.
+                float rim = 1 - smoothstep(_Threshold, _Threshold + 0.3, density);
+                float shade = 0.85 + 0.15 * i.uv.y;
+                float3 color = _LiquidColor.rgb * shade;
+                color = lerp(color, float3(1,1,1), rim * 0.28);
+                return fixed4(color * i.color.rgb, alpha * _LiquidColor.a * i.color.a);
+            }
+            ENDCG
+        }
+    }
+}

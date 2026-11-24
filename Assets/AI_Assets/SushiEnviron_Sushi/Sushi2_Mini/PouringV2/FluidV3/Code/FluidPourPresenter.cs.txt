@@ -1,0 +1,139 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace SushiPouringV3
+{
+    /// <summary>입력, 병의 기울기, 유체 세션, 게이지와 결과 이벤트를 연결합니다.</summary>
+    public sealed class FluidPourPresenter : MonoBehaviour
+    {
+        [SerializeField] private FluidDensityView _fluidView;
+        [SerializeField] private RectTransform _fluidRect;
+        [SerializeField] private RectTransform _bottlePivot;
+        [SerializeField] private RectTransform _mouth;
+        [SerializeField] private RectTransform _marker;
+        [SerializeField] private UnityEngine.UI.Text _status;
+        [SerializeField] private InputActionReference _tapReference;
+        [SerializeField] private bool _demoOnEnable = true;
+        [SerializeField] private bool _immediateSuccess;
+        [SerializeField] private Color _drinkColor = new Color(0.74f,0.85f,0.3f,1f);
+        private InputAction _tap, _cancel;
+        private FluidPourSession _session;
+        private double _accumulator;
+        private bool _armed, _reported;
+        private int _startFrame;
+        public bool IsRunning => _session != null && _session.Result == FluidResult.Running;
+        public event Action<FluidResult> Completed;
+
+        /// <summary>독립 데모 옵션이 켜져 있을 때만 자동 시작합니다.</summary>
+        private void OnEnable()
+        {
+            // 매장에 연결할 때는 Demo On Enable을 끄고 Begin을 직접 호출합니다.
+            if (_demoOnEnable && Application.isPlaying) Begin(_drinkColor);
+        }
+
+        /// <summary>새 주문에 맞는 색상으로 독립적인 라운드를 시작합니다.</summary>
+        public void Begin(Color color)
+        {
+            // 중복 시작과 필수 참조 누락을 방지합니다.
+            if (!Application.isPlaying || IsRunning || !isActiveAndEnabled) return;
+            if (!_fluidView || !_fluidView.IsReady() || !_fluidRect || !_bottlePivot || !_mouth || !_marker)
+            {
+                // 머티리얼 미지원 또는 연결 누락을 인스펙터에서 수정할 수 있게 알립니다.
+                Debug.LogError("FluidV3 참조 또는 RFloat 지원을 확인하세요.", this);
+                return;
+            }
+            ReleaseInput();
+            // 실제 프로젝트의 입력을 연결하거나 독립 데모에서는 Space를 사용합니다.
+            _tap = _tapReference && _tapReference.action != null ? _tapReference.action.Clone() :
+                new InputAction("FluidTap", InputActionType.Button, "<Keyboard>/space");
+            _cancel = new InputAction("FluidCancel", InputActionType.Button, "<Keyboard>/escape");
+            _tap.Enable(); _cancel.Enable();
+            // 모든 라운드 데이터는 새 세션에 격리합니다.
+            _session = new FluidPourSession { ImmediateSuccess = _immediateSuccess };
+            _accumulator = 0d; _armed = false; _reported = false; _startFrame = Time.frameCount;
+            _fluidView.Prepare(color);
+            _fluidView.Draw(_session.Fluid);
+        }
+
+        /// <summary>프레임 입력을 읽고 고정 스텝으로 시뮬레이션을 진행합니다.</summary>
+        private void Update()
+        {
+            // 일시정지와 시작 프레임에는 입력을 소비하지 않습니다.
+            if (_session == null || Time.timeScale <= 0f || Time.frameCount == _startFrame) return;
+            if (IsRunning)
+            {
+                // UI를 연 키는 한 번 놓은 후부터 연타 입력으로 인정합니다.
+                if (_cancel.WasPressedThisFrame()) { Cancel(); return; }
+                if (!_armed) _armed = !_tap.IsPressed();
+                else if (_tap.WasPressedThisFrame()) _session.Tap();
+            }
+            // 긴 프레임도 누락 없이 따라가되 프레임당 30스텝으로 작업량을 제한합니다.
+            _accumulator += Time.deltaTime;
+            int steps = 0;
+            while (_accumulator >= 1d/120d && steps++ < 30)
+            {
+                // 병 입구를 기준 피벗으로 회전하여 물이 입구에서 벗어나지 않게 합니다.
+                float angle = _session.Result == FluidResult.Running ?
+                    Mathf.Lerp(142f, 156f, (float)_session.Pressure) : 142f;
+                _bottlePivot.localRotation = Quaternion.Euler(0f, 0f, angle);
+                // 병 입구의 실제 RectTransform 좌표를 액체의 5×6 좌표로 바꿉니다.
+                Vector3 local = _fluidRect.InverseTransformPoint(_mouth.position);
+                float x = (local.x - _fluidRect.rect.xMin)/_fluidRect.rect.width*5f-2.5f;
+                float y = (local.y - _fluidRect.rect.yMin)/_fluidRect.rect.height*6f-3f;
+                Vector3 direction = _fluidRect.InverseTransformDirection(_mouth.up).normalized;
+                _session.Step(1d/120d, x, y, direction.x, direction.y);
+                _accumulator -= 1d/120d;
+            }
+            // 입력 게이지는 압력만 표시하고 컵의 물결과는 독립적입니다.
+            _marker.anchorMin = _marker.anchorMax = new Vector2((float)_session.Pressure, 0f);
+            _marker.anchoredPosition = new Vector2(0f, -18f);
+            _fluidView.Draw(_session.Fluid);
+            if (_status) _status.text = IsRunning ?
+                "SPACE 연타 · 기준 수위 " + (_session.Height*100d).ToString("F0") + "% / 목표 68–78%" :
+                _session.Result.ToString();
+            ReportResult();
+        }
+
+        /// <summary>진행 중인 주문의 미니게임을 취소합니다.</summary>
+        public void Cancel()
+        {
+            // 취소와 UI 닫기 모두 같은 결과 전달 경로를 사용합니다.
+            _session?.Cancel();
+            ReportResult();
+        }
+
+        /// <summary>최종 결과를 한 번만 알리고 입력을 해제합니다.</summary>
+        private void ReportResult()
+        {
+            // 콜백에서 패널을 닫아도 중복 보고하지 않습니다.
+            if (_session == null || IsRunning || _reported) return;
+            _reported = true;
+            ReleaseInput();
+            Completed?.Invoke(_session.Result);
+        }
+
+        /// <summary>이 컴포넌트가 소유하는 입력만 폐기합니다.</summary>
+        private void ReleaseInput()
+        {
+            // 플레이어의 원본 InputActionMap은 변경하지 않습니다.
+            _tap?.Dispose(); _cancel?.Dispose();
+            _tap = null; _cancel = null;
+        }
+
+        /// <summary>패널 비활성화 시 세션을 종료합니다.</summary>
+        private void OnDisable()
+        {
+            // 손님 이동 등 외부 이유로 닫혀도 잠금 해제 콜백을 전달합니다.
+            Cancel();
+            ReleaseInput();
+        }
+
+        /// <summary>포커스 상실 시 의도하지 않은 진행을 막습니다.</summary>
+        private void OnApplicationFocus(bool focused)
+        {
+            // 창을 벗어난 동안의 누락 입력으로 넘치는 것을 방지합니다.
+            if (!focused) Cancel();
+        }
+    }
+}

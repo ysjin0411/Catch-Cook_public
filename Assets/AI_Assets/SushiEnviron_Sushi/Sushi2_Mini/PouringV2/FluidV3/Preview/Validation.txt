@@ -1,0 +1,10 @@
+PASS controlled input -> Success; target height=0.7590
+PASS persistent particles=155
+PASS mean speed decays: 1.0391 -> 0.0214
+PASS mass conservation and finite coordinates on all 1800 steps.
+PASS idle -> TimedOut.
+PASS repeated input -> Overfilled.
+PASS cancel is terminal.
+PASS bounded pool capacity.
+Unity C# and editor helper compilation: checked separately against 6000.0.68f1 assemblies.
+Unity scene execution, GPU shader output, prefab menu execution: not run.

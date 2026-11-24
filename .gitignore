@@ -16,3 +16,7 @@
 !/Assets/02.Scripts/Sushi/
 !/Assets/05.Configs/Fish/
 !/Assets/05.Configs/Sushi/
+
+# Publish AI resources and preserve their folder metadata.
+!/Assets/AI_Assets/
+!/Assets/AI_Assets.meta

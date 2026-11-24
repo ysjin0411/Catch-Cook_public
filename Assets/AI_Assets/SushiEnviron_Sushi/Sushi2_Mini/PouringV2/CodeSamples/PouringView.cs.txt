@@ -1,0 +1,53 @@
+using UnityEngine;
+
+namespace SushiPouringSample
+{
+    /// <summary>물리 물방울 렌더러와 게이지, 목표 수위, 레버를 연결합니다.</summary>
+    public sealed class PouringView : MonoBehaviour
+    {
+        [SerializeField] private MetaballFluidRig _fluid;
+        [SerializeField] private RectTransform _leverPivot;
+        [SerializeField] private RectTransform _pressureMarker;
+        [SerializeField] private RectTransform _idealBand;
+        [SerializeField] private RectTransform _targetBand;
+
+        /// <summary>필수 UI 및 액체 렌더러 연결을 검사합니다.</summary>
+        public bool IsConfigured()
+        {
+            // 누락된 연결이 있으면 컨트롤러에서 시작을 중단합니다.
+            return _fluid && _fluid.IsConfigured() && _leverPivot && _pressureMarker && _idealBand && _targetBand;
+        }
+
+        /// <summary>라운드의 모델과 음료 색, 목표 영역을 설정합니다.</summary>
+        public void Configure(PourSettings settings, Color drinkColor, PouringModel model)
+        {
+            // 물방울 구조는 공유하고 음료 색만 바꿉니다.
+            _fluid.Begin(model, drinkColor);
+            // 표시와 판정이 같은 설정을 참조하게 합니다.
+            SetBand(_idealBand, new Vector2(settings.IdealMin, 0f), new Vector2(settings.IdealMax, 1f));
+            SetBand(_targetBand, new Vector2(0f, settings.TargetMin), new Vector2(1f, settings.TargetMax));
+        }
+
+        /// <summary>부모 영역의 정규화 비율로 목표 구간을 배치합니다.</summary>
+        private static void SetBand(RectTransform band, Vector2 minimum, Vector2 maximum)
+        {
+            // 앵커를 사용하여 해상도가 바뀌어도 비율을 유지합니다.
+            band.anchorMin = minimum;
+            band.anchorMax = maximum;
+            band.offsetMin = Vector2.zero;
+            band.offsetMax = Vector2.zero;
+        }
+
+        /// <summary>압력에 맞춰 삼각형과 레버를 갱신합니다.</summary>
+        public void Render(PouringModel model)
+        {
+            // 액체는 FluidRig의 물리와 LateUpdate 렌더링이 담당합니다.
+            float pressure = (float)model.Pressure;
+            _pressureMarker.anchorMin = _pressureMarker.anchorMax = new Vector2(pressure, 0f);
+            _pressureMarker.anchoredPosition = new Vector2(0f, -20f);
+            // 닫힌 라운드의 레버는 원위치로 돌아갑니다.
+            _leverPivot.localRotation = Quaternion.Euler(0f, 0f,
+                model.Result == PourResult.Running ? -35f * pressure : 0f);
+        }
+    }
+}

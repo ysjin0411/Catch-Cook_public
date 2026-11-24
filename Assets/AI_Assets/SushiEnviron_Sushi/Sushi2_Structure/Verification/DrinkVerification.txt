@@ -1,0 +1,14 @@
+PASS Allocate drink for area 0
+PASS Initialize drink guest 0
+PASS Drink guest reaches seat 0
+PASS Drink sensor contact 0
+PASS Drink rejects instant input 0
+PASS Drink cancellation resets timer 0
+PASS Held drink served and displayed 0
+PASS Allocate drink for area 1
+PASS Initialize drink guest 1
+PASS Drink guest reaches seat 1
+PASS Drink sensor contact 1
+PASS Drink rejects instant input 1
+PASS Drink cancellation resets timer 1
+PASS Held drink served and displayed 1

@@ -1,0 +1,602 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &201263841415626848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3648275642572561827}
+  m_Layer: 0
+  m_Name: MantaRay_NigiriPlate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3648275642572561827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201263841415626848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7343663573255025735}
+  - {fileID: 7150030517904651853}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1523990816256152406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7150030517904651853}
+  m_Layer: 0
+  m_Name: SushiContents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7150030517904651853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523990816256152406}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7011449871656296680}
+  - {fileID: 8398651204946991617}
+  - {fileID: 6434922841126419914}
+  - {fileID: 8701771447113369308}
+  - {fileID: 5586521898274324567}
+  - {fileID: 4156051668622420199}
+  m_Father: {fileID: 3648275642572561827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5543358439034112092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7343663573255025735}
+  - component: {fileID: 3071682148053547907}
+  - component: {fileID: 799513886156872140}
+  m_Layer: 0
+  m_Name: WoodPlate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7343663573255025735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543358439034112092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3648275642572561827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3071682148053547907
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543358439034112092}
+  m_Mesh: {fileID: 4300000, guid: 5202b9165f77466499d4841f801826a8, type: 2}
+--- !u!23 &799513886156872140
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543358439034112092}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 326139624230543641, guid: 846c76f1720adf84ca0eab183b11107c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &19739518411986615
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7150030517904651853}
+    m_Modifications:
+    - target: {fileID: 477475328010408712, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_Name
+      value: MantaRay_Nigiri_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.36584803
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29183385
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10956312
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+--- !u!4 &7011449871656296680 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+  m_PrefabInstance: {fileID: 19739518411986615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1550800383787822174
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7150030517904651853}
+    m_Modifications:
+    - target: {fileID: 477475328010408712, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_Name
+      value: MantaRay_Nigiri_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00007992983
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29183385
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10956312
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+--- !u!4 &8398651204946991617 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+  m_PrefabInstance: {fileID: 1550800383787822174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1858134487152963715
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7150030517904651853}
+    m_Modifications:
+    - target: {fileID: 477475328010408712, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_Name
+      value: MantaRay_Nigiri_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.36584803
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29183385
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.10999187
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+--- !u!4 &8701771447113369308 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+  m_PrefabInstance: {fileID: 1858134487152963715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3210183003890710024
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7150030517904651853}
+    m_Modifications:
+    - target: {fileID: 477475328010408712, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_Name
+      value: MantaRay_Nigiri_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00007992983
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29183385
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.10999187
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+--- !u!4 &5586521898274324567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+  m_PrefabInstance: {fileID: 3210183003890710024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4055205886167141269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7150030517904651853}
+    m_Modifications:
+    - target: {fileID: 477475328010408712, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_Name
+      value: MantaRay_Nigiri_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3660079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29183385
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10956312
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+--- !u!4 &6434922841126419914 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+  m_PrefabInstance: {fileID: 4055205886167141269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6388020201863732920
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7150030517904651853}
+    m_Modifications:
+    - target: {fileID: 477475328010408712, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_Name
+      value: MantaRay_Nigiri_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.11056022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3660079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29183385
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.10999187
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+--- !u!4 &4156051668622420199 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6992837320667035231, guid: 6e9064f0ad688c74fa49dfe1c736cda0, type: 3}
+  m_PrefabInstance: {fileID: 6388020201863732920}
+  m_PrefabAsset: {fileID: 0}

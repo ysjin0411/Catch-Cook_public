@@ -1,0 +1,82 @@
+# 신규 PouringV2 리소스만 생성하는 재현용 도구입니다. 기존 V1은 수정하지 않습니다.
+param([string]$Destination, [string]$SourceSheet)
+Add-Type -AssemblyName System.Drawing
+[void][System.IO.Directory]::CreateDirectory($Destination)
+$sheet = [System.Drawing.Bitmap]::new($SourceSheet)
+$cellWidth = [int]($sheet.Width / 2)
+$cellHeight = [int]($sheet.Height / 2)
+$names = @('Dispenser_Body','Dispenser_Lever','FX_Drop','FX_Splash')
+for ($i = 0; $i -lt 4; $i++) {
+    $rect = [System.Drawing.Rectangle]::new(($i % 2)*$cellWidth, [int][Math]::Floor($i/2)*$cellHeight, $cellWidth, $cellHeight)
+    $part = $sheet.Clone($rect, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+    $part.Save((Join-Path $Destination ($names[$i]+'.png')), [System.Drawing.Imaging.ImageFormat]::Png)
+    $part.Dispose()
+}
+$sheet.Dispose()
+
+# 컵 세 레이어는 모두 240×320이며 내부의 수위 범위는 아래 20~위 300입니다.
+$cupPoints = [System.Drawing.PointF[]]@(
+    [System.Drawing.PointF]::new(36,20), [System.Drawing.PointF]::new(204,20),
+    [System.Drawing.PointF]::new(192,300), [System.Drawing.PointF]::new(48,300))
+foreach ($kind in @('Cup_Back','Cup_Front','Cup_Mask')) {
+    $bmp = [System.Drawing.Bitmap]::new(240,320)
+    $g = [System.Drawing.Graphics]::FromImage($bmp)
+    $g.Clear([System.Drawing.Color]::Transparent)
+    $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
+    if ($kind -eq 'Cup_Mask') {
+        $g.FillPolygon([System.Drawing.Brushes]::White, $cupPoints)
+    } elseif ($kind -eq 'Cup_Back') {
+        $brush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(38,190,224,218))
+        $g.FillPolygon($brush,$cupPoints)
+        $brush.Dispose()
+        $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(170,150,190,183),3)
+        $g.DrawEllipse($pen,30,10,180,20)
+        $pen.Dispose()
+    } else {
+        $pen = [System.Drawing.Pen]::new([System.Drawing.ColorTranslator]::FromHtml('#263E3B'),6)
+        $g.DrawLine($pen,30,20,44,302)
+        $g.DrawLine($pen,210,20,196,302)
+        $g.DrawArc($pen,44,289,152,24,0,180)
+        $g.DrawArc($pen,30,10,180,20,0,180)
+        $pen.Dispose()
+        $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(165,255,255,255),5)
+        $g.DrawLine($pen,43,42,53,250)
+        $g.DrawLine($pen,195,55,188,180)
+        $pen.Dispose()
+    }
+    $bmp.Save((Join-Path $Destination ($kind+'.png')), [System.Drawing.Imaging.ImageFormat]::Png)
+    $g.Dispose()
+    $bmp.Dispose()
+}
+
+# 채움과 판정용 UI는 그림의 여백 없이 정확한 직사각형을 사용합니다.
+$rectangles = @(
+    @('Liquid_Fill',32,32,'#FFFFFF'), @('Stream_Core',32,64,'#FFFFFF'),
+    @('Gauge_Track',640,32,'#203E3A'), @('Target_Band',32,32,'#FFD45C'),
+    @('Panel_Background',32,32,'#162D2B'))
+foreach ($item in $rectangles) {
+    $bmp = [System.Drawing.Bitmap]::new([int]$item[1],[int]$item[2])
+    $g = [System.Drawing.Graphics]::FromImage($bmp)
+    $g.Clear([System.Drawing.ColorTranslator]::FromHtml($item[3]))
+    $bmp.Save((Join-Path $Destination ($item[0]+'.png')), [System.Drawing.Imaging.ImageFormat]::Png)
+    $g.Dispose()
+    $bmp.Dispose()
+}
+foreach ($kind in @('Gauge_Triangle','Liquid_Surface')) {
+    $width = 64
+    $height = 48
+    if ($kind -eq 'Liquid_Surface') { $width = 168; $height = 12 }
+    $bmp = [System.Drawing.Bitmap]::new($width,$height)
+    $g = [System.Drawing.Graphics]::FromImage($bmp)
+    $g.Clear([System.Drawing.Color]::Transparent)
+    $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
+    if ($kind -eq 'Gauge_Triangle') {
+        $points = [System.Drawing.Point[]]@([System.Drawing.Point]::new(32,3),[System.Drawing.Point]::new(60,44),[System.Drawing.Point]::new(4,44))
+        $g.FillPolygon([System.Drawing.Brushes]::White,$points)
+    } else {
+        $g.FillEllipse([System.Drawing.Brushes]::White,0,0,167,11)
+    }
+    $bmp.Save((Join-Path $Destination ($kind+'.png')), [System.Drawing.Imaging.ImageFormat]::Png)
+    $g.Dispose()
+    $bmp.Dispose()
+}

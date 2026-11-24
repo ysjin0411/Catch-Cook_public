@@ -1,0 +1,114 @@
+using System;
+using System.IO;
+using System.Text;
+using System.Globalization;
+using SushiPouringV3;
+
+/// <summary>Unity 밖에서 실제 솔버를 실행하고 검사 결과와 재생 데이터를 저장합니다.</summary>
+public static class ValidationRunner
+{
+    /// <summary>독립 실행 파일의 진입점입니다. 첫 인수는 결과 폴더입니다.</summary>
+    public static void Main(string[] args)
+    {
+        // 모든 숫자를 재현 가능한 소수점 형식으로 기록합니다.
+        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+        string directory = args[0];
+        Directory.CreateDirectory(directory);
+        var log = new StringBuilder();
+        var replay = new StringBuilder("window.fluidFrames=[\n");
+        var session = new FluidPourSession();
+        double energetic = 0d, quiet = 0d;
+        bool first = true;
+        for (int tick = 0; tick < 1800; tick++)
+        {
+            // 동일한 피드백 입력으로 한 번의 정상 라운드를 실행합니다.
+            if (session.Contained+session.Flying+session.Pending < 0.64d && session.Pressure < 0.48d) session.Tap();
+            double angle = (142d+14d*session.Pressure)*Math.PI/180d;
+            session.Step(1d/120d, 0.45d, 1.25d, -Math.Sin(angle), Math.Cos(angle));
+            // 매 스텝마다 유한성, 바닥 경계와 물량 보존을 검사합니다.
+            CheckState(session);
+            session.Fluid.Measure(out double contained, out double flying, out double speed);
+            if (tick == 600) energetic = speed;
+            if (tick == 1799) quiet = speed;
+            if (tick % 4 != 0) continue;
+            // 실제 계산 결과를 30FPS 데이터로 저장합니다. 미리 만든 애니메이션이 아닙니다.
+            if (!first) replay.Append(",\n");
+            first = false;
+            replay.Append("{\"time\":").Append((tick/120d).ToString("F3"));
+            replay.Append(",\"pressure\":").Append(session.Pressure.ToString("F4"));
+            replay.Append(",\"height\":").Append(session.Height.ToString("F4"));
+            replay.Append(",\"result\":\"").Append(session.Result).Append("\",\"xy\":[");
+            for (int i = 0; i < session.Fluid.Count; i++)
+            {
+                // 좌표를 충분한 정밀도로 남겨 메타볼 렌더링을 다시 확인할 수 있게 합니다.
+                FluidParticle p = session.Fluid.GetParticle(i);
+                if (i > 0) replay.Append(',');
+                replay.Append(p.X.ToString("F4")).Append(',').Append(p.Y.ToString("F4"));
+            }
+            replay.Append("]}");
+        }
+        replay.Append("\n];");
+        Assert(session.Result == FluidResult.Success,"controlled input succeeds");
+        Assert(session.Fluid.Count > 50,"particles remain in cup");
+        Assert(quiet < energetic*0.2d,"motion decays after pouring");
+        log.AppendLine("PASS controlled input -> Success; target height="+session.Height.ToString("F4"));
+        log.AppendLine("PASS persistent particles="+session.Fluid.Count);
+        log.AppendLine("PASS mean speed decays: "+energetic.ToString("F4")+" -> "+quiet.ToString("F4"));
+        log.AppendLine("PASS mass conservation and finite coordinates on all 1800 steps.");
+        // 미입력은 제한 시간이 지나면 종료됩니다.
+        var idle = new FluidPourSession();
+        for (int i = 0; i < 1500; i++) idle.Step(1d/120d,0.45d,1.25d,-0.42d,-0.9d);
+        Assert(idle.Result == FluidResult.TimedOut,"idle timeout");
+        log.AppendLine("PASS idle -> TimedOut.");
+        // 과도한 입력은 목표 상한을 넘어 실패합니다.
+        var spam = new FluidPourSession();
+        for (int i = 0; i < 1500 && spam.Result == FluidResult.Running; i++)
+        {
+            // 압력 1 부근에서 계속 주입하여 넘침 경로를 검사합니다.
+            spam.Tap();
+            double angle=(142d+14d*spam.Pressure)*Math.PI/180d;
+            spam.Step(1d/120d,0.45d,1.25d,-Math.Sin(angle),Math.Cos(angle));
+            CheckState(spam);
+        }
+        Assert(spam.Result == FluidResult.Overfilled,"spam overfills");
+        log.AppendLine("PASS repeated input -> Overfilled.");
+        // 취소한 세션은 새 입력으로 재개되지 않습니다.
+        var cancelled = new FluidPourSession();
+        cancelled.Cancel(); cancelled.Tap(); cancelled.Step(1d/120d,0,1,0,-1);
+        Assert(cancelled.Result == FluidResult.Cancelled && cancelled.Fluid.Count == 0,"cancel is terminal");
+        log.AppendLine("PASS cancel is terminal.");
+        // 풀 고갈 시 양을 만들지 않고 명확하게 실패합니다.
+        var full = new FluidSimulation();
+        for (int i=0;i<FluidSimulation.Capacity;i++) Assert(full.TryEmit(0,1,0,-1,FluidSimulation.Parcel),"pool accepts capacity");
+        Assert(!full.TryEmit(0,1,0,-1,FluidSimulation.Parcel),"pool rejects overflow");
+        log.AppendLine("PASS bounded pool capacity.");
+        log.AppendLine("Unity C# and editor helper compilation: checked separately against 6000.0.68f1 assemblies.");
+        log.AppendLine("Unity scene execution, GPU shader output, prefab menu execution: not run.");
+        File.WriteAllText(Path.Combine(directory,"frames.js"),replay.ToString(),new UTF8Encoding(false));
+        File.WriteAllText(Path.Combine(directory,"Validation.txt"),log.ToString(),new UTF8Encoding(false));
+        Console.WriteLine(log.ToString());
+    }
+
+    /// <summary>각 스텝의 상태와 보존 법칙을 검사합니다.</summary>
+    private static void CheckState(FluidPourSession session)
+    {
+        // 개별 입자의 값이 유한하고 진입한 입자가 바닥을 뚫지 않았는지 확인합니다.
+        for (int i=0;i<session.Fluid.Count;i++)
+        {
+            // 표시 계층과 동일한 읽기 API로 상태를 가져옵니다.
+            FluidParticle p=session.Fluid.GetParticle(i);
+            Assert(!double.IsNaN(p.X+p.Y+p.VX+p.VY) && !double.IsInfinity(p.X+p.Y+p.VX+p.VY),"finite particles");
+            Assert(!p.Entered || p.Y >= FluidSimulation.Bottom+0.054d,"cup floor containment");
+        }
+        // 새로 생기거나 사라진 양이 없는지 검사합니다.
+        session.Fluid.Measure(out double contained,out double flying,out double speed);
+        Assert(Math.Abs(session.Fluid.Emitted-session.Fluid.Spilled-contained-flying)<1e-8,"mass conservation");
+    }
+
+    /// <summary>조건 실패를 테스트 실행 실패로 보고합니다.</summary>
+    private static void Assert(bool condition, string message)
+    {
+        // 검사 실패 시 다음 결과를 성공으로 기록하지 않습니다.
+        if (!condition) throw new InvalidOperationException(message);
+    }
+}

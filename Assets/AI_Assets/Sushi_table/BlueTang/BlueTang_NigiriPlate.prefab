@@ -1,0 +1,602 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6405460214693815131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110385666998603602}
+  m_Layer: 0
+  m_Name: BlueTang_NigiriPlate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1110385666998603602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405460214693815131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6015970601182812609}
+  - {fileID: 4093254692200348345}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7625501699657846899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4093254692200348345}
+  m_Layer: 0
+  m_Name: SushiContents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4093254692200348345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7625501699657846899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5427962526564329413}
+  - {fileID: 8140605922700666530}
+  - {fileID: 5966834003040187104}
+  - {fileID: 608829999960288168}
+  - {fileID: 6122731387106695958}
+  - {fileID: 7602891772744347872}
+  m_Father: {fileID: 1110385666998603602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8293412876439422993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6015970601182812609}
+  - component: {fileID: 8494561349152485927}
+  - component: {fileID: 4724968729507909668}
+  m_Layer: 0
+  m_Name: WoodPlate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6015970601182812609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293412876439422993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1110385666998603602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8494561349152485927
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293412876439422993}
+  m_Mesh: {fileID: 4300000, guid: 5202b9165f77466499d4841f801826a8, type: 2}
+--- !u!23 &4724968729507909668
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293412876439422993}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 326139624230543641, guid: 846c76f1720adf84ca0eab183b11107c, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &5726040743096477
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4093254692200348345}
+    m_Modifications:
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4569294
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20988916
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17465027
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054007207723948229, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_Name
+      value: BlueTang_Nigiri_04
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+--- !u!4 &608829999960288168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+  m_PrefabInstance: {fileID: 5726040743096477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4842872965981961456
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4093254692200348345}
+    m_Modifications:
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4569294
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20988916
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.044904724
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054007207723948229, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_Name
+      value: BlueTang_Nigiri_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+--- !u!4 &5427962526564329413 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+  m_PrefabInstance: {fileID: 4842872965981961456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6532712656068110805
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4093254692200348345}
+    m_Modifications:
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27492654
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20988916
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.044904724
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054007207723948229, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_Name
+      value: BlueTang_Nigiri_03
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+--- !u!4 &5966834003040187104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+  m_PrefabInstance: {fileID: 6532712656068110805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6674026392657379363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4093254692200348345}
+    m_Modifications:
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09100143
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20988916
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17465027
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054007207723948229, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_Name
+      value: BlueTang_Nigiri_05
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+--- !u!4 &6122731387106695958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+  m_PrefabInstance: {fileID: 6674026392657379363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7053848317773966293
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4093254692200348345}
+    m_Modifications:
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27492654
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20988916
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17465027
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054007207723948229, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_Name
+      value: BlueTang_Nigiri_06
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+--- !u!4 &7602891772744347872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+  m_PrefabInstance: {fileID: 7053848317773966293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8691830258859408791
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4093254692200348345}
+    m_Modifications:
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16220812
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09100143
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20988916
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.044904724
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054007207723948229, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+      propertyPath: m_Name
+      value: BlueTang_Nigiri_02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+--- !u!4 &8140605922700666530 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 605356351745284917, guid: 06791b9efd50e144f95de1eac2a38304, type: 3}
+  m_PrefabInstance: {fileID: 8691830258859408791}
+  m_PrefabAsset: {fileID: 0}

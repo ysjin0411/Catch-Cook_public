@@ -1,0 +1,11 @@
+PASS: emitted water does not increase fill before arrival.
+PASS: arrival transfers exactly the assigned volume.
+PASS: 30 FPS with 0.6s travel delay -> success, fill=0.74119.
+PASS: 60 FPS with 0.6s travel delay -> success, fill=0.7441.
+PASS: 144 FPS with 0.6s travel delay -> success, fill=0.74564.
+PASS: no input times out.
+PASS: excessive input overfills.
+PASS: cancelled state remains unchanged.
+PASS: immediate mode succeeds at target.
+C# compilation against Unity 6000.0.68f1 + project UI/InputSystem assemblies: PASS.
+Unity scene runtime, GPU shader compilation and appearance: NOT TESTED.

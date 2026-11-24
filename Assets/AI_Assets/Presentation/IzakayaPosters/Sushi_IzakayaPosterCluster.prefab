@@ -1,0 +1,222 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1432601678358579772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7081391417275523936}
+  m_Layer: 0
+  m_Name: Sushi_IzakayaPosterCluster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7081391417275523936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432601678358579772}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6570102796683180447}
+  - {fileID: 1237666520013537773}
+  - {fileID: 7309083434447494581}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &939570761286022428
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7081391417275523936}
+    m_Modifications:
+    - target: {fileID: 1973970183287999935, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_Name
+      value: Sushi_Poster_NamaBeer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99904823
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.043619387
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+--- !u!4 &6570102796683180447 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6208131882611248259, guid: c2d0f076d6e7a9342b9dd7ead1b6684e, type: 3}
+  m_PrefabInstance: {fileID: 939570761286022428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1480251108301315090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7081391417275523936}
+    m_Modifications:
+    - target: {fileID: 4931315349064207318, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_Name
+      value: Sushi_Poster_Sashimi
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99965733
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.02617695
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+--- !u!4 &7309083434447494581 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8207243122657378727, guid: f41c52ea327729341ba65de9a03be1fe, type: 3}
+  m_PrefabInstance: {fileID: 1480251108301315090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7199605436296249352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7081391417275523936}
+    m_Modifications:
+    - target: {fileID: 3174655011263149273, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_Name
+      value: Sushi_Poster_TodaysSpecial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9998477
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.017452406
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+--- !u!4 &1237666520013537773 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8270634060354011621, guid: 8956c6024bf7eee42bf22ee058fef16f, type: 3}
+  m_PrefabInstance: {fileID: 7199605436296249352}
+  m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,55 @@
+Shader "SushiMini/V3 Fluid Density"
+{
+    Properties
+    {
+        [PerRendererData] _MainTex ("Density", 2D) = "black" {}
+        _LiquidColor ("Liquid Color", Color) = (0.74,0.85,0.3,1)
+        _Threshold ("Merge Threshold", Range(0.2,0.8)) = 0.5
+    }
+    SubShader
+    {
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
+        Cull Off ZWrite Off ZTest [unity_GUIZTestMode]
+        Blend SrcAlpha OneMinusSrcAlpha
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex Vert
+            #pragma fragment Frag
+            #pragma target 3.0
+            #include "UnityCG.cginc"
+            struct Input { float4 vertex:POSITION; float2 uv:TEXCOORD0; fixed4 color:COLOR; };
+            struct Output { float4 vertex:SV_POSITION; float2 uv:TEXCOORD0; fixed4 color:COLOR; };
+            sampler2D _MainTex;
+            float4 _MainTex_TexelSize;
+            float _Threshold;
+            fixed4 _LiquidColor;
+
+            // <summary>UI 정점과 밀도 텍스처 좌표를 전달합니다.</summary>
+            Output Vert(Input v)
+            {
+                // Canvas 변환을 적용하고 UI 색상을 보존합니다.
+                Output o;
+                o.vertex=UnityObjectToClipPos(v.vertex); o.uv=v.uv; o.color=v.color;
+                return o;
+            }
+
+            // <summary>실제 입자 밀도에서 연결된 액체 경계와 얕은 명암을 계산합니다.</summary>
+            fixed4 Frag(Output i):SV_Target
+            {
+                // 수면 높이를 별도로 그리지 않고 입자 밀도만 사용합니다.
+                float d=tex2D(_MainTex,i.uv).r;
+                float edge=max(0.035,fwidth(d));
+                float alpha=smoothstep(_Threshold-edge,_Threshold+edge,d);
+                // 밀도 기울기로 간단한 가장자리 조명을 만듭니다.
+                float2 t=_MainTex_TexelSize.xy;
+                float gx=tex2D(_MainTex,i.uv+float2(t.x,0)).r-tex2D(_MainTex,i.uv-float2(t.x,0)).r;
+                float gy=tex2D(_MainTex,i.uv+float2(0,t.y)).r-tex2D(_MainTex,i.uv-float2(0,t.y)).r;
+                float light=saturate(-gx+gy)*0.3;
+                float3 rgb=lerp(_LiquidColor.rgb*0.94,float3(1,1,1),light);
+                return fixed4(rgb*i.color.rgb,alpha*_LiquidColor.a*i.color.a);
+            }
+            ENDCG
+        }
+    }
+}

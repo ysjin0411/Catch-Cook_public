@@ -1,0 +1,85 @@
+using System;
+using UnityEngine;
+
+namespace SushiPouringV3
+{
+    /// <summary>입자 밀도를 텍스처로 누적하고 메타볼 UI 셰이더로 표시합니다.</summary>
+    public sealed class FluidDensityView : MonoBehaviour
+    {
+        [SerializeField] private UnityEngine.UI.RawImage _output;
+        [SerializeField] private Shader _shader;
+        private const int Width = 300, Height = 360;
+        private readonly float[] _density = new float[Width * Height];
+        private Texture2D _texture;
+        private Material _material;
+        private const float KernelRadius = 0.21f;
+
+        /// <summary>필수 연결과 RFloat 텍스처 지원 여부를 검사합니다.</summary>
+        public bool IsReady()
+        {
+            // 지원되지 않는 장치에서 조용히 잘못된 화면을 출력하지 않습니다.
+            return _output && _shader && SystemInfo.SupportsTextureFormat(TextureFormat.RFloat);
+        }
+
+        /// <summary>라운드에 사용할 텍스처와 음료 색을 준비합니다.</summary>
+        public void Prepare(Color color)
+        {
+            // 한 번 만든 리소스는 다음 라운드에서도 재사용합니다.
+            if (!_texture)
+            {
+                // RawImage와 같은 5:6 비율이며 값은 색공간 변환 없이 밀도로 사용합니다.
+                _texture = new Texture2D(Width, Height, TextureFormat.RFloat, false, true);
+                _texture.filterMode = FilterMode.Bilinear;
+                _texture.wrapMode = TextureWrapMode.Clamp;
+                _material = new Material(_shader);
+                _output.texture = _texture;
+                _output.material = _material;
+                _output.maskable = false;
+                _output.raycastTarget = false;
+            }
+            // 음료 종류에 따라 재질 색만 변경합니다.
+            _material.SetColor("_LiquidColor", color);
+        }
+
+        /// <summary>입자 주변 픽셀에만 밀도를 더해 한 프레임을 렌더링합니다.</summary>
+        public void Draw(FluidSimulation fluid)
+        {
+            // 이전 프레임의 밀도를 지우고 현재 위치에서 다시 계산합니다.
+            if (!_texture) return;
+            Array.Clear(_density, 0, _density.Length);
+            for (int i = 0; i < fluid.Count; i++)
+            {
+                // 실제 입자 위치를 텍스처 픽셀 좌표로 변환합니다.
+                FluidParticle p = fluid.GetParticle(i);
+                float cx = ((float)p.X + 2.5f) * Width / 5f;
+                float cy = ((float)p.Y + 3f) * Height / 6f;
+                float radius = KernelRadius * Width / 5f;
+                int x0 = Mathf.Max(0, Mathf.FloorToInt(cx - radius));
+                int x1 = Mathf.Min(Width - 1, Mathf.CeilToInt(cx + radius));
+                int y0 = Mathf.Max(0, Mathf.FloorToInt(cy - radius));
+                int y1 = Mathf.Min(Height - 1, Mathf.CeilToInt(cy + radius));
+                for (int y = y0; y <= y1; y++)
+                for (int x = x0; x <= x1; x++)
+                {
+                    // 겹친 필드를 합산하면 가까운 방울의 경계가 서로 이어집니다.
+                    float dx = (x + 0.5f - cx) / radius;
+                    float dy = (y + 0.5f - cy) / radius;
+                    float q = Mathf.Max(0f, 1f - dx*dx - dy*dy);
+                    _density[y*Width+x] += q*q;
+                }
+            }
+            // 고정 배열을 업로드하며 매 프레임 머티리얼이나 텍스처를 생성하지 않습니다.
+            _texture.SetPixelData(_density, 0);
+            _texture.Apply(false, false);
+        }
+
+        /// <summary>직접 만든 런타임 리소스를 해제합니다.</summary>
+        private void OnDestroy()
+        {
+            // 공유 에셋은 유지하고 복제본만 제거합니다.
+            if (_output) { _output.texture = null; _output.material = null; }
+            if (_texture) Destroy(_texture);
+            if (_material) Destroy(_material);
+        }
+    }
+}

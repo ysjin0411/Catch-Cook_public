@@ -1,0 +1,425 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &382497681367925446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3974509247451097497}
+  m_Layer: 0
+  m_Name: Tamagoyaki
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3974509247451097497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382497681367925446}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.23344536, z: 0, w: 0.9723699}
+  m_LocalPosition: {x: 0.045, y: 0.06, z: -0.015}
+  m_LocalScale: {x: 0.11214217, y: 0.11214217, z: 0.11214217}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8817520908346193391}
+  m_Father: {fileID: 1793237860040166812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &657769729651202147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5689744628970516543}
+  m_Layer: 0
+  m_Name: Tamagoyaki
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5689744628970516543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657769729651202147}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.15643448, z: 0, w: 0.98768836}
+  m_LocalPosition: {x: -0.065, y: 0.06, z: 0.004}
+  m_LocalScale: {x: 0.19409221, y: 0.19409221, z: 0.19409221}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5111032043972985342}
+  m_Father: {fileID: 1793237860040166812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1343937009176660928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7996039908382840449}
+  m_Layer: 0
+  m_Name: Tamagoyaki
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7996039908382840449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343937009176660928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.98380154, y: 0.98380154, z: 0.98380154}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5287803203481389506}
+  m_Father: {fileID: 1793237860040166812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2042211216942205784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7396721095297997211}
+  m_Layer: 0
+  m_Name: Chopsticks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7396721095297997211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042211216942205784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.19936793, z: 0, w: 0.9799247}
+  m_LocalPosition: {x: 0.01, y: 0.06, z: 0}
+  m_LocalScale: {x: 0.82753944, y: 0.82753944, z: 0.82753944}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1744307215852121745}
+  m_Father: {fileID: 1793237860040166812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9140098403214472057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793237860040166812}
+  m_Layer: 0
+  m_Name: FoodLeftovers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793237860040166812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9140098403214472057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 7996039908382840449}
+  - {fileID: 5689744628970516543}
+  - {fileID: 3974509247451097497}
+  - {fileID: 7396721095297997211}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2287757514814081402
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7396721095297997211}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0060892105
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00469015
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02095604
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+      propertyPath: m_Name
+      value: Chopsticks
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+--- !u!4 &1744307215852121745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 033dc39bcb300f14a9bdc81833ff45f9, type: 3}
+  m_PrefabInstance: {fileID: 2287757514814081402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4712086745730737685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5689744628970516543}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0047101974
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.057099998
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0026435852
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10313626470302784, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_Name
+      value: Tamagoyaki
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+--- !u!4 &5111032043972985342 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+  m_PrefabInstance: {fileID: 4712086745730737685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5685994100026977833
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7996039908382840449}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0040626526
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0000000037252903
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00011062622
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7989622930288619032, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_Name
+      value: Tamagoyaki
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+--- !u!4 &5287803203481389506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+  m_PrefabInstance: {fileID: 5685994100026977833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9067041214384083460
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3974509247451097497}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0047101974
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.057099998
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0026435852
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10313626470302784, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+      propertyPath: m_Name
+      value: Tamagoyaki
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+--- !u!4 &8817520908346193391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a4c2065f83aacc34e8324415b5622912, type: 3}
+  m_PrefabInstance: {fileID: 9067041214384083460}
+  m_PrefabAsset: {fileID: 0}

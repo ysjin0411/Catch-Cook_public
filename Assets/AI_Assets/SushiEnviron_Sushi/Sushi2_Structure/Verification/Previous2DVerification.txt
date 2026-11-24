@@ -1,0 +1,77 @@
+PASS Confirm three real menus
+PASS All 14 guests walk to their seats
+PASS Seven seats in each area
+PASS Kim sushi fixed slot
+PASS Three populated menu plaques
+PASS Reach BChair2
+PASS Reach BChair7
+PASS Reach BChair6
+PASS Reach FChair4
+PASS Reach BChair1
+PASS Reach FChair3
+PASS Reach FChair1
+PASS Reach FChair7
+PASS Reach FChair5
+PASS Reach BChair3
+PASS Reach FChair6
+PASS Reach BChair5
+PASS Reach BChair4
+PASS Reach FChair2
+PASS Pickup through hero sensor
+PASS Select correct guest BChair7
+PASS Food served BChair7
+PASS Pickup through hero sensor
+PASS Select correct guest BChair2
+PASS Food served BChair2
+PASS Pickup through hero sensor
+PASS Select correct guest BChair6
+PASS Food served BChair6
+PASS Pickup through hero sensor
+PASS Select correct guest FChair5
+PASS Food served FChair5
+PASS Pickup through hero sensor
+PASS Select correct guest BChair3
+PASS Food served BChair3
+PASS Pickup through hero sensor
+PASS Select correct guest FChair6
+PASS Food served FChair6
+PASS Pickup through hero sensor
+PASS Select correct guest FChair4
+PASS Food served FChair4
+PASS Pickup through hero sensor
+PASS Select correct guest BChair1
+PASS Food served BChair1
+PASS Pickup through hero sensor
+PASS Select correct guest FChair3
+PASS Food served FChair3
+PASS Pickup through hero sensor
+PASS Select correct guest BChair4
+PASS Food served BChair4
+PASS Pickup through hero sensor
+PASS Select correct guest FChair1
+PASS Food served FChair1
+PASS Pickup through hero sensor
+PASS Select correct guest FChair7
+PASS Food served FChair7
+PASS Pickup through hero sensor
+PASS Select correct guest FChair2
+PASS Food served FChair2
+PASS Pickup through hero sensor
+PASS Select correct guest BChair5
+PASS Food served BChair5
+PASS Every served seat becomes dirty
+PASS Clean and reopen BChair5
+PASS Clean and reopen FChair3
+PASS Clean and reopen BChair2
+PASS Clean and reopen BChair4
+PASS Clean and reopen BChair6
+PASS Clean and reopen FChair6
+PASS Clean and reopen FChair2
+PASS Clean and reopen BChair3
+PASS Clean and reopen BChair1
+PASS Clean and reopen FChair4
+PASS Clean and reopen BChair7
+PASS Clean and reopen FChair7
+PASS Clean and reopen FChair5
+PASS Clean and reopen FChair1
+PASS Automatic staff reaches and serves a guest

@@ -79,6 +79,7 @@
 - 손님 주문 및 서빙 흐름과 연결
 
 | 주요 코드 | 역할 |
+| --- | --- |
 | [DrinkMinigameController.cs](Assets/02.Scripts/Sushi/MiniGame/DrinkMinigameController.cs) | 입력과 라운드 진행 연결 |
 | [FluidPourSession.cs](Assets/02.Scripts/Sushi/MiniGame/FluidPourSession.cs) | 라운드 상태와 판정 관리 |
 | [FluidSimulation.cs](Assets/02.Scripts/Sushi/MiniGame/FluidSimulation.cs) | 입자 이동과 밀도·압력 계산 |

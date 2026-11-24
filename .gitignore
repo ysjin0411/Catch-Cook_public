@@ -1,0 +1,18 @@
+# Portfolio repository: ignore everything unless explicitly allowed below.
+/*
+!/.gitignore
+!/README.md
+
+# Keep parent directories traversable, but exclude their other contents.
+!/Assets/
+/Assets/*
+!/Assets/02.Scripts/
+!/Assets/05.Configs/
+/Assets/02.Scripts/*
+/Assets/05.Configs/*
+
+# Publish these four folders in full, including Editor and nested files.
+!/Assets/02.Scripts/Fish/
+!/Assets/02.Scripts/Sushi/
+!/Assets/05.Configs/Fish/
+!/Assets/05.Configs/Sushi/

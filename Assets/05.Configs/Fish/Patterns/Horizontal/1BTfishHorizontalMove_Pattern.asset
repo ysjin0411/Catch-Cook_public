@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cae1e8f23a733b4d826d4473e2ec9ce, type: 3}
+  m_Name: 1BTfishHorizontalMove_Pattern
+  m_EditorClassIdentifier: 
+  _obstacleTurnInterval: 0.5
+  _fishPrefab: {fileID: 6765308643721714550, guid: f92b6e0ab28eee249ad3a290beaaa85d, type: 3}
+  _spawnOffsets:
+  - {x: 0, y: 0}
+  _groupSpeedRatio: 0.65
+  _followStrength: 3

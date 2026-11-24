@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d4af0de1636f4da9ec8af90a28c95, type: 3}
+  m_Name: ServingStaffUpgradeData
+  m_EditorClassIdentifier: 
+  _levelAppearances:
+  - _particlePrefab: {fileID: 3145999494601076617, guid: bf9187279ed2dc4408b9d64e91d4df66, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: d7899d191cf1eb84f9f3756ab2a16561, type: 2}
+    _pantsMaterial: {fileID: 2100000, guid: 6e873e692d287204ea276de0f99c192a, type: 2}
+  - _particlePrefab: {fileID: 7987214315649261397, guid: 3cea9dc846160274b8f968f8ee8e8f75, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 2682caa1f50dd0f4aa71a16d8a35044d, type: 2}
+    _pantsMaterial: {fileID: 2100000, guid: 9f2febc8b3ff01e48bce5d8379e47a32, type: 2}
+  - _particlePrefab: {fileID: 7379545475139395329, guid: 4ede8c6759b557c418bd8d8fc8b60987, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 6b8562af0210fbf4fa5bc9aba541217c, type: 2}
+    _pantsMaterial: {fileID: 2100000, guid: 976cf76f7a21f1d48b0867fac8c6a79c, type: 2}
+  - _particlePrefab: {fileID: 4751466185078188828, guid: 76d1d6e330012dc488d59b8572d33d5c, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 5c5b03db29f97854fabd58dc3d2125a7, type: 2}
+    _pantsMaterial: {fileID: 2100000, guid: c79675f233341c64d8dbe33f08e378ca, type: 2}
+  - _particlePrefab: {fileID: 7034604677889943333, guid: 871b45833c9bac74592d46615dc4feef, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 0168321e20a74f04ba67700181ab4d02, type: 2}
+    _pantsMaterial: {fileID: 2100000, guid: 130dd1b2380962441a90eb528138fe7e, type: 2}
+  _staffName: "\uC11C\uBE59 \uC9C1\uC6D0"
+  _unlockPlayerLevel: 3
+  _activeUnlockLevel: 5
+  _passiveIcon: {fileID: 0}
+  _passiveDescription: "\uC74C\uB8CC\uC140\uD504\uC544\uB2D8"
+  _activeIcon: {fileID: 0}
+  _activeDescription: "\uCD95\uC9C0\uBC95\uC11C\uBE59"
+  _moveSpeeds:
+  - 0
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
+  _upgradeCosts:
+  - 100
+  - 200
+  - 400
+  - 800

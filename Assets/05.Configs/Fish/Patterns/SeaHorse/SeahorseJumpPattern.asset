@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3acb49acc6f1c4a9229c8b5e7677b2, type: 3}
+  m_Name: SeahorseJumpPattern
+  m_EditorClassIdentifier: 
+  _obstacleTurnInterval: 0.5
+  _fishPrefab: {fileID: 1197256058956845393, guid: 8d2a65b0f60bed145b2e86c9b3484b24, type: 3}
+  _jumpHeight: 1.5
+  _jumpDistance: 2
+  _horizontalSpeed: 2
+  _jumpsBeforeTurn: 3
+  _jumpInterval: 0

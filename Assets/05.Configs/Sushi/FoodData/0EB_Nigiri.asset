@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9a335dcba5cbf4aaa26574c74f2773, type: 3}
+  m_Name: 0EB_Nigiri
+  m_EditorClassIdentifier: 
+  _id: 0
+  _name: "\uC5EC\uB35F\uB760\uB098\uBE44\uACE0\uAE30\uB2C8\uAE30\uB9AC"
+  _icon: {fileID: 21300000, guid: b026da1f32f10ad41b9ffef095e5fdfe, type: 3}
+  _desc: "\uB2F4\uBC31\uD55C \uC5EC\uB35F\uB760\uB098\uBE44\uACE0\uAE30 \uC0B4\uC744
+    \uC5B9\uC740 \uB2C8\uAE30\uB9AC."
+  _visualPrefab: {fileID: 7924521853683598365, guid: 551081748a4f6f8478fbcdc6e1b70823, type: 3}
+  _remainingPrefab: {fileID: 9140098403214472057, guid: e3ceef98b11ea4245849f3273bcfe3aa, type: 3}
+  _gold: 38
+  _playerExperience: 10
+  _ingredients:
+  - _item: {fileID: 11400000, guid: 3e1151a2c548138408a1038c6f9644a8, type: 2}
+    _amount: 1
+  - _item: {fileID: 11400000, guid: d14b3990ca161ae43a025dbfdc3e7a97, type: 2}
+    _amount: 1
+  - _item: {fileID: 11400000, guid: 4bcf20982dc4422499d0a98bd33bc5e6, type: 2}
+    _amount: 1
+  _cookTime: 5.2
+  _waitingTime: 22.7
+  _eatingTime: 7

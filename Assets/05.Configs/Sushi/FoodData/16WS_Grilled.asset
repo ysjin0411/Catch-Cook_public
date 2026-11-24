@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9a335dcba5cbf4aaa26574c74f2773, type: 3}
+  m_Name: 16WS_Grilled
+  m_EditorClassIdentifier: 
+  _menuType: 0
+  _drinkInteractionTime: 2
+  _id: 16
+  _name: "\uACE0\uB798\uC0C1\uC5B4\uAD6C\uC774"
+  _icon: {fileID: 21300000, guid: f74e597383f2ff84d8543d98aa6b8ece, type: 3}
+  _desc: "짭조름한 간장 향이 밴 담백한 고래상어 구이."
+  _visualPrefab: {fileID: 829097636312891511, guid: 7052adf079a46bb4f915def3e8212a5c, type: 3}
+  _remainingPrefab: {fileID: 9140098403214472057, guid: e3ceef98b11ea4245849f3273bcfe3aa, type: 3}
+  _gold: 115
+  _playerExperience: 10
+  _ingredients:
+  - _item: {fileID: 11400000, guid: 86fa0981223775646940c6713ec6fa28, type: 2}
+    _amount: 2
+  - _item: {fileID: 11400000, guid: a04df52de1ec66b4c9dda5fd8b329aca, type: 2}
+    _amount: 1
+  - _item: {fileID: 11400000, guid: 4bcf20982dc4422499d0a98bd33bc5e6, type: 2}
+    _amount: 1
+  _cookTime: 5.2
+  _waitingTime: 22.7
+  _eatingTime: 7

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c412ed6c495ae30489c1ae8b3b967dbc, type: 3}
+  m_Name: 104LemonAde
+  m_EditorClassIdentifier: 
+  _id: 104
+  _name: "\uB808\uBAAC\uC5D0\uC774\uB4DC"
+  _icon: {fileID: 21300000, guid: 9780d79120f70d64387aa3f95d8a5c4a, type: 3}
+  _desc: "새콤한 레몬과 시원한 탄산으로 입안을 깨우는 에이드."
+  _visualPrefab: {fileID: 7144530601336239258, guid: 0a69ec2a1d46681419673234aadc26ad, type: 3}
+  _remainingPrefab: {fileID: 1550577930319006888, guid: 254f602f7149bce4ba0cd2b3578c4129, type: 3}
+  _gold: 15
+  _playerExperience: 10
+  _ingredients: []
+  _cookTime: 10
+  _waitingTime: 20
+  _eatingTime: 7
+  _drinkInteractionTime: 2

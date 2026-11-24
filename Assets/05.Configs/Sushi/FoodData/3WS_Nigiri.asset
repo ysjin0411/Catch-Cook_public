@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9a335dcba5cbf4aaa26574c74f2773, type: 3}
+  m_Name: 3WS_Nigiri
+  m_EditorClassIdentifier: 
+  _menuType: 0
+  _drinkInteractionTime: 2
+  _id: 3
+  _name: "\uACE0\uB798\uC0C1\uC5B4\uB2C8\uAE30\uB9AC"
+  _icon: {fileID: 21300000, guid: 72dc065f8ab538845884a2f5a611f643, type: 3}
+  _desc: "큼직한 고래상어 살의 담백함을 담은 니기리."
+  _visualPrefab: {fileID: 7753173644059645242, guid: e5ee48e2627bf9e42b53f79cc67b6605, type: 3}
+  _remainingPrefab: {fileID: 9140098403214472057, guid: e3ceef98b11ea4245849f3273bcfe3aa, type: 3}
+  _gold: 70
+  _playerExperience: 10
+  _ingredients:
+  - _item: {fileID: 11400000, guid: 86fa0981223775646940c6713ec6fa28, type: 2}
+    _amount: 1
+  - _item: {fileID: 11400000, guid: d14b3990ca161ae43a025dbfdc3e7a97, type: 2}
+    _amount: 1
+  - _item: {fileID: 11400000, guid: 4bcf20982dc4422499d0a98bd33bc5e6, type: 2}
+    _amount: 1
+  _cookTime: 5.2
+  _waitingTime: 22.7
+  _eatingTime: 7

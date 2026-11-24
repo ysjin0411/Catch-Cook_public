@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54eb7c5b5d9c4d9438dcef261d3758a0, type: 3}
+  m_Name: SushiSpawnDifficulty
+  m_EditorClassIdentifier: 
+  _levels:
+  - MinimumPlayerLevel: 1
+    SpawnRateMultiplier: 0.6
+  - MinimumPlayerLevel: 2
+    SpawnRateMultiplier: 0.65
+  - MinimumPlayerLevel: 3
+    SpawnRateMultiplier: 0.7
+  - MinimumPlayerLevel: 4
+    SpawnRateMultiplier: 0.75
+  - MinimumPlayerLevel: 5
+    SpawnRateMultiplier: 0.8
+  - MinimumPlayerLevel: 6
+    SpawnRateMultiplier: 0.85
+  - MinimumPlayerLevel: 7
+    SpawnRateMultiplier: 0.9
+  - MinimumPlayerLevel: 8
+    SpawnRateMultiplier: 0.95
+  - MinimumPlayerLevel: 9
+    SpawnRateMultiplier: 1
+  - MinimumPlayerLevel: 10
+    SpawnRateMultiplier: 1.05
+  - MinimumPlayerLevel: 11
+    SpawnRateMultiplier: 1.1
+  - MinimumPlayerLevel: 12
+    SpawnRateMultiplier: 1.15
+  - MinimumPlayerLevel: 13
+    SpawnRateMultiplier: 1.2
+  - MinimumPlayerLevel: 14
+    SpawnRateMultiplier: 1.25
+  - MinimumPlayerLevel: 15
+    SpawnRateMultiplier: 1.3
+  _fourthMenuUnlockLevel: 5
+  _fifthMenuUnlockLevel: 8

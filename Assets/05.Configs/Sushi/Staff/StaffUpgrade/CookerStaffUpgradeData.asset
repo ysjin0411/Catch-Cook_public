@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98341a1889776204dbf4f2cb70a359b1, type: 3}
+  m_Name: CookerStaffUpgradeData
+  m_EditorClassIdentifier: 
+  _levelAppearances:
+  - _particlePrefab: {fileID: 3228762569165827093, guid: dca80f9585885a5428a2a6094876b05f, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 7c3e4757cc35cbd42bcb2e7fe7411c1e, type: 2}
+    _pantsMaterial: {fileID: 0}
+  - _particlePrefab: {fileID: 6597296590712555487, guid: ae6ceea7890e3e249b89363fed579caf, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 312220a81e4b3d04fb4b3c93000eaa3b, type: 2}
+    _pantsMaterial: {fileID: 0}
+  - _particlePrefab: {fileID: 7410884494567921601, guid: b97810da84e949f49b769d2a1a99a979, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: c3b1c31b06f7317458d58e0fc8b9835d, type: 2}
+    _pantsMaterial: {fileID: 0}
+  - _particlePrefab: {fileID: 3676984573999822960, guid: 9ed229db875b5c44ca065e62fd33f0a4, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 01a68a2a34c35834e80dd46060f96a72, type: 2}
+    _pantsMaterial: {fileID: 0}
+  - _particlePrefab: {fileID: 3306582428082530050, guid: e93fa9686b1c52d40a978a219190f94d, type: 3}
+    _outwearMaterial: {fileID: 2100000, guid: 13180eeb145254f4fb2bf1f78c620590, type: 2}
+    _pantsMaterial: {fileID: 0}
+  _staffName: "\uC694\uB9AC \uC9C1\uC6D0"
+  _unlockPlayerLevel: 1
+  _activeUnlockLevel: 5
+  _passiveIcon: {fileID: 0}
+  _passiveDescription: "\uC190\uC774 \uC5EC\uB7EC\uAC1C"
+  _activeIcon: {fileID: 0}
+  _activeDescription: "\uD55C\uAD6D\uC778\uC758 \uC18D\uB3C4"
+  _activeTimeMultiplier: 0.5
+  _cookTimeReductions:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.4
+  _upgradeCosts:
+  - 150
+  - 300
+  - 600
+  - 1200

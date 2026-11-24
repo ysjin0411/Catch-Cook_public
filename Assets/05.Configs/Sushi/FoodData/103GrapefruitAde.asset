@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c412ed6c495ae30489c1ae8b3b967dbc, type: 3}
+  m_Name: 103GrapefruitAde
+  m_EditorClassIdentifier: 
+  _id: 103
+  _name: "\uC790\uBABD\uC5D0\uC774\uB4DC"
+  _icon: {fileID: 21300000, guid: 2b99cb77cb164a240ac2bf0f83e178f5, type: 3}
+  _desc: "새콤쌉싸름한 자몽과 탄산이 어우러진 에이드."
+  _visualPrefab: {fileID: 7150368230592819609, guid: 9b4b9236d5b7ba847868a65a78de43b7, type: 3}
+  _remainingPrefab: {fileID: 5619076237858324640, guid: 985922f9779c03545bd0d51339fbddb0, type: 3}
+  _gold: 15
+  _playerExperience: 10
+  _ingredients: []
+  _cookTime: 10
+  _waitingTime: 20
+  _eatingTime: 7
+  _drinkInteractionTime: 2

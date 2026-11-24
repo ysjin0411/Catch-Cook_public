@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9a335dcba5cbf4aaa26574c74f2773, type: 3}
+  m_Name: 18ST_Gunkan
+  m_EditorClassIdentifier: 
+  _menuType: 0
+  _drinkInteractionTime: 2
+  _id: 18
+  _name: "\uC2A4\uCEF9\uD06C\uD0C0\uC77C\uBB3C\uACE0\uAE30\uAD70\uD568"
+  _icon: {fileID: 21300000, guid: 6aaad3fdcace31e45a26613bed3eea0d, type: 3}
+  _desc: "쫀득한 스컹크타일물고기 살을 김으로 감싼 군함."
+  _visualPrefab: {fileID: 183205575729857466, guid: bb6899f67d53a164b9d77edb88db4f03, type: 3}
+  _remainingPrefab: {fileID: 9140098403214472057, guid: e3ceef98b11ea4245849f3273bcfe3aa, type: 3}
+  _gold: 30
+  _playerExperience: 10
+  _ingredients:
+  - _item: {fileID: 11400000, guid: c414da6ba7f013a43a4cca7176df00f1, type: 2}
+    _amount: 1
+  - _item: {fileID: 11400000, guid: d14b3990ca161ae43a025dbfdc3e7a97, type: 2}
+    _amount: 1
+  - _item: {fileID: 11400000, guid: 86a4addd77d2b8b4c917dff98c2130f7, type: 2}
+    _amount: 1
+  _cookTime: 5.2
+  _waitingTime: 22.7
+  _eatingTime: 7

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26449cfe0dd54a843b1c520e439fde5e, type: 3}
+  m_Name: Style_Tea
+  m_EditorClassIdentifier: 
+  _menu: {fileID: 11400000, guid: 47c57e26ce788634590a4aa453437b6f, type: 2}
+  _vesselKind: 2
+  _pourSprite: {fileID: 21300000, guid: ee68dd53f3b71f143b9149f58a42195f, type: 3}
+  _pourImageSize: {x: 154, y: 192}
+  _pourImageOffset: {x: 0.7, y: -71.35}
+  _liquidColor: {r: 0.47058824, g: 0.60784316, b: 0.27058825, a: 1}
+  _highlightColor: {r: 0.8627451, g: 0.9098039, b: 0.6784314, a: 1}
+  _config: {fileID: 11400000, guid: c499110145d31404eb6ca952d45af79d, type: 2}

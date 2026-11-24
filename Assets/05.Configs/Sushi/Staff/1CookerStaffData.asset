@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3bd8a3baf340f49f7ccf32714b88f8, type: 3}
+  m_Name: 1CookerStaffData
+  m_EditorClassIdentifier: 
+  _staffId: 1
+  _staffName: "\uC694\uB9AC\uC0AC"
+  _description: "\uC5C5\uACC4\uC5D0\uC11C \uB098\uB984 \uC720\uBA85\uD55C \uC694\uB9AC\uC0AC\uC774\uB2E4."
+  _portrait: {fileID: 21300000, guid: 2b08bb15abf1d354cad8600d0a5e1397, type: 3}
+  _unlockPlayerLevel: 1
+  _baseCookTimeMultiplier: 1
+  _upgradeData: {fileID: 11400000, guid: e6d01a00720520f4da1e4e0be925d5b1, type: 2}

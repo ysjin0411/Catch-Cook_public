@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb88c36f7f3ec83429055dd6d8508a38, type: 3}
+  m_Name: BG_2BlueTang_Diagonal_NW_SE
+  m_EditorClassIdentifier: 
+  _obstacleTurnInterval: 0.5
+  _fishPrefab: {fileID: 2950574702132897996, guid: 266b1ee9ca0265949a4cf2082f5152e8, type: 3}
+  _data: {fileID: 11400000, guid: ed55db245cbc2ed408957f3d862ed003, type: 2}
+  _spawnOffsets:
+  - {x: 0, y: 0}
+  - {x: -1.6, y: 0.7}
+  _curvedMovement: 0
+  _movement: 2
+  _diagonalAngle: -30
+  _waveAmplitude: 1.5
+  _waveLength: 24
+  _groupSpeedRatio: 0.45
+  _travelDistance: {x: 18, y: 30}
+  _maxTurnAngle: 60
+  _pathTurnSpeed: 25
+  _visualTurnSpeed: 180
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _wallClearance: 0.05

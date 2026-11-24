@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9a335dcba5cbf4aaa26574c74f2773, type: 3}
+  m_Name: 99CC_Basic
+  m_EditorClassIdentifier: 
+  _id: 99
+  _name: "\uC624\uC774\uC808\uC784"
+  _icon: {fileID: 21300000, guid: 8e23bfea333a6924eb67dab2903b42a4, type: 3}
+  _desc: "\uC544\uC0AD\uD55C \uC624\uC774\uB97C \uC9ED\uC870\uB984\uD558\uAC8C \uC808\uC5EC
+    \uC785\uB9DB\uC744 \uB3CB\uC6B0\uB294 \uD55C \uC811\uC2DC."
+  _visualPrefab: {fileID: 3686010431389565869, guid: 3c425da16464881448aff9856836223c, type: 3}
+  _remainingPrefab: {fileID: 9140098403214472057, guid: e3ceef98b11ea4245849f3273bcfe3aa, type: 3}
+  _gold: 8
+  _playerExperience: 5
+  _ingredients: []
+  _cookTime: 5.2
+  _waitingTime: 22.7
+  _eatingTime: 7

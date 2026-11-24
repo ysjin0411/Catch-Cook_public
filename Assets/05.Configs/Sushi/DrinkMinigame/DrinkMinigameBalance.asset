@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112d59172a074d1498bc49c2bb3d6e60, type: 3}
+  m_Name: DrinkMinigameBalance
+  m_EditorClassIdentifier: 
+  _gameplay:
+    _duration: 5
+    _targetVolume: 0.7
+    _volumeTolerance: 0.05
+    _maximumGauge: 100
+    _idealGaugeMin: 40
+    _idealGaugeMax: 60
+    _gaugeDecayPerSecond: 45
+    _gaugePerTap: 12
+    _minimumFlowMultiplier: 0
+    _maximumFlowMultiplier: 2
+  _simulation:
+    _cupProfile: []
+    _bottom: -2.4
+    _rim: 0.4
+    _bottomHalfWidth: 0.72
+    _topHalfWidth: 0.84
+    _viewMinX: -2.5
+    _viewMaxX: 2.5
+    _viewMinY: -3
+    _viewMaxY: 3
+    _cullMargin: 0.3
+    _particleArea: 0.021
+    _particleRadius: 0.055
+    _neighborRadius: 0.28
+    _emissionSpeed: 3.2
+    _gravity: 9.81
+    _viscosity: 1.8
+    _velocityDamping: 0.25
+    _cupVelocityDamping: 2
+    _maximumSpeed: 12
+    _stiffness: 140
+    _nearStiffness: 400
+    _restDensity: 1.6
+    _maximumAttraction: 8
+    _separationStrength: 0.45
+    _maximumPullShift: 0.003
+    _maximumPushShift: 0.018
+    _emissionSpread: 0.025
+    _emissionHalfAngle: 4
+    _minimumEmissionSpeedMultiplier: 0.5
+    _maximumEmissionSpeedMultiplier: 1.5
+    _minimumEmissionSpreadMultiplier: 0.25
+    _maximumEmissionSpreadMultiplier: 2
+    _maximumStep: 0.008333333333333333
+    _solverIterations: 2
+    _particleBudget: 1024

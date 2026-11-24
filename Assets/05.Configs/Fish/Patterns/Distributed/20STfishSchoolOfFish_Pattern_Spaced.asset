@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c07df166b2ef142b502291963ac108, type: 3}
+  m_Name: 20STfishSchoolOfFish_Pattern_Spaced
+  m_EditorClassIdentifier: 
+  _obstacleTurnInterval: 0.5
+  _fishPrefab: {fileID: 8062492268177633937, guid: 09ebd33cf02a9f44cac1da87de2f2710, type: 3}
+  _spawnOffsets:
+  - {x: -10.2859125, y: 0.000000020436273}
+  - {x: -6.171547, y: 2.0571828}
+  - {x: -6.171547, y: -2.0571828}
+  - {x: -4.1143646, y: 4.1143656}
+  - {x: -4.1143646, y: 0.000000020436273}
+  - {x: -4.1143646, y: -4.1143656}
+  - {x: -2.0571816, y: 6.171548}
+  - {x: -2.0571816, y: 3.085774}
+  - {x: -2.0571816, y: -3.085774}
+  - {x: -2.0571816, y: -6.171548}
+  - {x: 10.285914, y: 0.000000020436273}
+  - {x: 6.1715493, y: 2.0571828}
+  - {x: 6.1715493, y: -2.0571828}
+  - {x: 4.1143656, y: 4.1143656}
+  - {x: 4.1143656, y: 0.000000020436273}
+  - {x: 4.1143656, y: -4.1143656}
+  - {x: 2.057183, y: 6.171548}
+  - {x: 2.057183, y: 3.085774}
+  - {x: 2.057183, y: -3.085774}
+  - {x: 2.057183, y: -6.171548}
+  _groupSpeedRatio: 0.65
+  _followStrength: 3
+  _minTravelDistance: 3
+  _maxTravelDistance: 6
+  _maxTurnAngle: 60
+  _curveRatio: 0.4
+  _formationTurnSpeed: 120

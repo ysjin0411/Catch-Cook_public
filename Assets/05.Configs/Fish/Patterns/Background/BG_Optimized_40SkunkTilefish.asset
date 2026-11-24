@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb88c36f7f3ec83429055dd6d8508a38, type: 3}
+  m_Name: BG_Optimized_40SkunkTilefish
+  m_EditorClassIdentifier: 
+  _obstacleTurnInterval: 0.5
+  _fishPrefab: {fileID: 2333935823446233891, guid: 2677523da91920d48bcbaa6fc541b751, type: 3}
+  _data: {fileID: 11400000, guid: daca127aa6795e9488e0db3498df1623, type: 2}
+  _spawnOffsets:
+  - {x: 0, y: 0}
+  - {x: -0.9, y: -0.501}
+  - {x: -0.959, y: 0.03}
+  - {x: -0.988, y: 0.493}
+  - {x: -1.845, y: -1.056}
+  - {x: -1.955, y: -0.597}
+  - {x: -1.881, y: -0.054}
+  - {x: -1.87, y: 0.611}
+  - {x: -1.959, y: 1.161}
+  - {x: -2.842, y: -1.67}
+  - {x: -2.9, y: -1.19}
+  - {x: -2.792, y: -0.552}
+  - {x: -2.877, y: 0.068}
+  - {x: -2.871, y: 0.534}
+  - {x: -2.794, y: 1.059}
+  - {x: -2.903, y: 1.721}
+  - {x: -3.845, y: -2.013}
+  - {x: -3.799, y: -1.439}
+  - {x: -3.756, y: -0.777}
+  - {x: -3.86, y: -0.258}
+  - {x: -3.764, y: 0.211}
+  - {x: -3.788, y: 0.835}
+  - {x: -3.852, y: 1.47}
+  - {x: -3.743, y: 1.947}
+  - {x: -4.808, y: -1.747}
+  - {x: -4.699, y: -1.092}
+  - {x: -4.76, y: -0.5}
+  - {x: -4.787, y: -0.044}
+  - {x: -4.69, y: 0.511}
+  - {x: -4.793, y: 1.176}
+  - {x: -4.753, y: 1.714}
+  - {x: -5.717, y: -1.14}
+  - {x: -5.646, y: -0.491}
+  - {x: -5.755, y: 0.002}
+  - {x: -5.68, y: 0.49}
+  - {x: -5.671, y: 1.136}
+  - {x: -6.611, y: -0.794}
+  - {x: -6.643, y: -0.234}
+  - {x: -6.699, y: 0.222}
+  - {x: -6.592, y: 0.809}
+  _curvedMovement: 0
+  _movement: 1
+  _diagonalAngle: 30
+  _waveAmplitude: 1.5
+  _waveLength: 24
+  _groupSpeedRatio: 0.3
+  _travelDistance: {x: 3, y: 6}
+  _maxTurnAngle: 60
+  _pathTurnSpeed: 25
+  _visualTurnSpeed: 120
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _wallClearance: 0.05

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c07df166b2ef142b502291963ac108, type: 3}
+  m_Name: 10STfishSchoolOfFish_Pattern
+  m_EditorClassIdentifier: 
+  _obstacleTurnInterval: 0.5
+  _fishPrefab: {fileID: 8062492268177633937, guid: 09ebd33cf02a9f44cac1da87de2f2710, type: 3}
+  _spawnOffsets:
+  - {x: 0, y: 0}
+  - {x: 0.3, y: 0.15}
+  - {x: 0.3, y: -0.15}
+  - {x: 0.45, y: 0.3}
+  - {x: 0.45, y: 0}
+  - {x: 0.45, y: -0.3}
+  - {x: 0.6, y: 0.45}
+  - {x: 0.6, y: 0.225}
+  - {x: 0.6, y: -0.225}
+  - {x: 0.6, y: -0.45}
+  _groupSpeedRatio: 0.65
+  _followStrength: 3
+  _minTravelDistance: 3
+  _maxTravelDistance: 6
+  _maxTurnAngle: 60
+  _curveRatio: 0.4
+  _formationTurnSpeed: 120
